@@ -1,5 +1,4 @@
 *.pyc
 .vscode
 venv/
-data/
 .idea/
