@@ -1,0 +1,136 @@
+body{
+    background: url(../home./back11.jpg);
+}
+
+.profile-badge{
+    border: 8px solid rgb(250, 232, 208);
+    padding:4px;
+	width: 580px;
+  height: 600px;
+  position: absolute;
+  left:20%;
+  opacity: 0.7;
+  box-shadow:  20px 20px 50px black ;
+  background: white;
+}
+
+.pet-detail{
+	height: 100%;
+	width: 30%;
+	position:fixed;
+    position: relative;
+    padding:115px 0px 10px 0px;
+    color:#0a0a09;
+	background: linear-gradient(to right, #7cd6f1,#a3d9f8 );
+}
+.pet{
+	position: absolute;
+    width: 68%;
+    height: 10%;
+    overflow: hidden;
+	padding:115px 0px 10px 0px;
+    color:#0a0a09;
+	background:  rgb(250, 232, 208);
+	left: 31%;
+	bottom: 455;
+  border-radius : 85px;
+}
+.pet-detail1{
+	position: absolute;
+    width: 68%;
+    height: 76%;
+    overflow: hidden;
+	padding:115px 0px 10px 0px;
+    color:#0a0a09;
+	left: 31%;
+	bottom: 4;
+	background: #f8f7f4;
+}
+.pet-detail h4{
+    margin: 0px;
+    margin:0px 0px 5px 0px;
+    color: #000;
+	background: rgb(250, 232, 208);
+
+}
+label{
+	font-style:oblique;
+	font-size: 12px;
+	}
+.input{
+	height: 20px;
+	width: 80px;
+}
+.rad{
+	display:inline-flex;
+	padding: 1px;
+}
+.radio{
+	height: 12px;
+	width: 27px;
+}
+h1{
+	position:absolute;
+	top: 17px;
+	left: 25px;
+}
+.feed{
+	top:3px;
+	bottom: 400;
+	left: 9%;
+	position:absolute;
+
+}
+.profile-pic{
+    position: absolute;
+    height:120px;
+    width:120px;
+    top: 0px;
+    z-index: 1001;
+    padding: 10px;
+}
+.profile-pic img{
+   
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 2px rgb(87, 87, 79);
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}   
+.logo_bow{
+height: 22px;
+width: 30px;
+top:9px;
+bottom: 100;
+position:absolute;
+}
+.form-feed{
+	top: 49px;
+	bottom: 400;
+	position:absolute;
+}
+
+.logo_vet{
+	height: 22px;
+	width: 30px;
+	left: 1;
+	position: absolute;
+}
+.form-vet{
+	top: 150px;
+	bottom: 690;
+	left:2;
+	position:absolute;
+}
+.info{
+	left: 5px;;
+	position:absolute;
+	bottom: -265;
+}
+textarea{
+	left: 5px;;
+	position:absolute;
+	bottom: -320;
+	height: 55px;
+	width: 290px;
+}
