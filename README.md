@@ -1,1 +1,1 @@
-# PetVille_priv
+# Private repo of our Petville project.
