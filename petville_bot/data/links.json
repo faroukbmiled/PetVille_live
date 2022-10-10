@@ -1,0 +1,9 @@
+{
+    "doggif": "https://cdn.discordapp.com/attachments/869978103471046708/1029044660871626782/dog-smile.gif",
+    "logoSsize": "https://cdn.discordapp.com/attachments/869978103471046708/1029060961224638485/notext_1_2_1_1_1.png",
+    "logoMsize": "https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png",
+    "errorgif": "https://cdn.discordapp.com/attachments/869978103471046708/1029004680212254841/8NxwEwX.gif",
+    "thumb": "https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png",
+    "api_status": "http://54.82.98.129/api/v1/status",
+    "api_states": "http://54.82.98.129/api/v1/states"
+ }
