@@ -21,6 +21,17 @@ class Admin(commands.Cog):
     """Error handler"""
 
     def __init__(self, bot: petville) -> None:
+        global thumb, errorgif, logoMsize ,logoSsize, doggif, api_status,\
+        api_states
+        with open('data/links.json') as links:
+            data = json.load(links)
+        api_status = data["api_status"]
+        api_states = data["api_states"]
+        doggif = data["doggif"]
+        logoSsize = data["logoSsize"]
+        logoMsize = data["logoMsize"]
+        errorgif = data["errorgif"]
+        thumb = data["thumb"]
         self.bot: petville = bot
 
     @commands.command()
@@ -79,77 +90,66 @@ class Admin(commands.Cog):
     @app_commands.command(description='list states')
     async def states(self, interaction: Interaction) -> None:
         """info about status"""
-        empty = ['\---------------']
-        api = "http://54.82.98.129/api/v1/status"
-        check = get(api)
-        if check.status_code != 200:
+        api = api_states
+        status = get(api)
+        
+        if status.status_code != 200:
+            
             embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"Server Status: [{check.status_code}]",value="Oh no! Server is not responding!", inline=False)
-            embed.set_image(url="https://cdn.discordapp.com/attachments/869978103471046708/1029004680212254841/8NxwEwX.gif")
+            embed.add_field(name=f"Server Status: [{status.status_code}]",value="Oh no! Server is not responding!", inline=False)
+            embed.set_thumbnail(url=thumb)
+            embed.set_image(url=errorgif)
             view = ui.View()
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png")
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/status", row=0))
+            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
+            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
+
+        elif len(get(api).json()) == 0:
+            embed = discord.Embed(color=0xFF0000)
+            embed.add_field(name=f"States: [{status.status_code}]",value="Your Database is empty! ,Please check", inline=False)
+            embed.set_image(url=errorgif)
+            view = ui.View()
+            embed.set_thumbnail(url=logoMsize)
+            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
+            
         else:
-            states = urlopen("http://54.82.98.129/api/v1/states").read() 
-            if states:
-                test = json.loads(states.decode())
-                for i in test:
-                    empty.append("{}".format(i["name"]))
+            empty = ['\---------------']
+            jsonify = get(api).json()
+            if status:
+                for i in jsonify:
+                    empty.append(f'{i["name"]}')
             formated = ('\n* '.join(empty))
+            length = len(jsonify)
 
             embed = discord.Embed(color=0x000000)
-            embed.add_field(name="States:",value=formated, inline=False)
+            embed.add_field(name=f"States: [{length}]",value=formated, inline=False)
             view = ui.View()
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029060961224638485/notext_1_2_1_1_1.png")
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/states", row=0))
-            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
-    
-    @app_commands.command(description='Number of states')
-    async def nb_states(self, interaction: Interaction) -> None:
-        """info about states"""
-        api = "http://54.82.98.129/api/v1/status"
-        check = get(api)
-        if check.status_code != 200:
-            embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"Server Status: [{check.status_code}]",value="Oh no! Server is not responding!", inline=False)
-            embed.set_image(url="https://cdn.discordapp.com/attachments/869978103471046708/1029004680212254841/8NxwEwX.gif")
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png")
-            view = ui.View()
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/status", row=0))
-            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
-        else:
-            url = ('http://54.82.98.129/api/v1/states')
-            states = get(url).json()
-            length = len(states)
-            embed = discord.Embed(color=0x000000)
-            embed.add_field(name="Number of States:", value=length, inline=False)
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png")
-            view = ui.View()
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/states", row=0))
+            embed.set_thumbnail(url=thumb)
+            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
     @app_commands.command(description='status')
     async def status(self, interaction: Interaction) -> None:
         """info about status"""
-        status = get("http://54.82.98.129/api/v1/status")
+        status = get(api_status)
         if status.status_code != 200:
+
             embed = discord.Embed(color=0xFF0000)
             embed.add_field(name=f"Server Status: [{status.status_code}]",value="Oh no! Server is not responding!", inline=False)
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png")
-            embed.set_image(url="https://cdn.discordapp.com/attachments/869978103471046708/1029004680212254841/8NxwEwX.gif")
+            embed.set_thumbnail(url=thumb)
+            embed.set_image(url=errorgif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/status", row=0))
+            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
         else:
             ok = status.json().get('status')
             embed = discord.Embed(color=0x00FF00)
             embed.add_field(name=f"Server Status: [{ok}]",
             value=f"Server is up and runing!\n", inline=False)
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png")
-            embed.set_image(url="https://cdn.discordapp.com/attachments/869978103471046708/1029044660871626782/dog-smile.gif")
+            embed.set_thumbnail(url=thumb)
+            embed.set_image(url=doggif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url="http://54.82.98.129/api/v1/status", row=0))
+            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
 async def setup(bot: petville) -> None:
