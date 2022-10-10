@@ -22,9 +22,10 @@ class Admin(commands.Cog):
 
     def __init__(self, bot: petville) -> None:
         global thumb, errorgif, logoMsize ,logoSsize, doggif, api_status,\
-        api_states
+        api_states, itsfinegif
         with open('data/links.json') as links:
             data = json.load(links)
+        itsfinegif = data ["itsfinegif"]
         api_status = data["api_status"]
         api_states = data["api_states"]
         doggif = data["doggif"]
@@ -96,7 +97,7 @@ class Admin(commands.Cog):
         if status.status_code != 200:
             
             embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"Server Status: [{status.status_code}]",value="Oh no! Server is not responding!", inline=False)
+            embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
             embed.set_thumbnail(url=thumb)
             embed.set_image(url=errorgif)
             view = ui.View()
@@ -104,12 +105,12 @@ class Admin(commands.Cog):
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
 
         elif len(get(api).json()) == 0:
-            embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"States: [{status.status_code}]",value="Your Database is empty! ,Please check", inline=False)
-            embed.set_image(url=errorgif)
+            embed = discord.Embed(color=0xFFA500)
+            embed.add_field(name=f"**Server Status** [{status.status_code}]:",value="**Your Database is empty!**", inline=False)
+            embed.set_image(url=itsfinegif)
             view = ui.View()
             embed.set_thumbnail(url=logoMsize)
-            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
+            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
             
         else:
@@ -121,8 +122,8 @@ class Admin(commands.Cog):
             formated = ('\n* '.join(empty))
             length = len(jsonify)
 
-            embed = discord.Embed(color=0x000000)
-            embed.add_field(name=f"States: [{length}]",value=formated, inline=False)
+            embed = discord.Embed(color=0x7ac3e6)
+            embed.add_field(name=f"**States:** [{length}]",value=formated, inline=False)
             view = ui.View()
             embed.set_thumbnail(url=thumb)
             view.add_item(ui.Button(label='API Link', url=api_states, row=0))
@@ -135,7 +136,7 @@ class Admin(commands.Cog):
         if status.status_code != 200:
 
             embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"Server Status: [{status.status_code}]",value="Oh no! Server is not responding!", inline=False)
+            embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
             embed.set_thumbnail(url=thumb)
             embed.set_image(url=errorgif)
             view = ui.View()
@@ -144,8 +145,8 @@ class Admin(commands.Cog):
         else:
             ok = status.json().get('status')
             embed = discord.Embed(color=0x00FF00)
-            embed.add_field(name=f"Server Status: [{ok}]",
-            value=f"Server is up and runing!\n", inline=False)
+            embed.add_field(name=f"**Server Status:** [{ok}]",
+            value=f"**Server is up and runing!**\n", inline=False)
             embed.set_thumbnail(url=thumb)
             embed.set_image(url=doggif)
             view = ui.View()
