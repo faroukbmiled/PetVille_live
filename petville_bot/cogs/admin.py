@@ -90,7 +90,7 @@ class Admin(commands.Cog):
 
     @app_commands.command(description='list states')
     async def states(self, interaction: Interaction) -> None:
-        """info about status"""
+        """info about states"""
         api = api_states
         status = get(api)
         
@@ -101,7 +101,7 @@ class Admin(commands.Cog):
             embed.set_thumbnail(url=thumb)
             embed.set_image(url=errorgif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
+            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
 
         elif len(get(api).json()) == 0:
@@ -125,7 +125,7 @@ class Admin(commands.Cog):
             embed = discord.Embed(color=0x7ac3e6)
             embed.add_field(name=f"**States:** [{length}]",value=formated, inline=False)
             view = ui.View()
-            embed.set_thumbnail(url=thumb)
+            embed.set_thumbnail(url=logoSsize)
             view.add_item(ui.Button(label='API Link', url=api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 

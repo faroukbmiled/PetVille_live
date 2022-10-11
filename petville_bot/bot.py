@@ -34,6 +34,7 @@ class petville(commands.Bot):
         super().__init__(command_prefix=BOT_PREFIX, case_insensitive=True, intents=intents)
         self.session: aiohttp.ClientSession = None
         self.bot_version = 'Alpha'
+        self.bot_maker = 'Farouk'
         self.tree.interaction_check = self.interaction_check
 
     @staticmethod
@@ -49,6 +50,7 @@ class petville(commands.Bot):
         await self.tree.sync()
         print(f"\nLogged in as: {self.user}\n\nPetVille is Ready!")
         print(f"Version: {self.bot_version}")
+        print(f"Made by: {self.bot_maker}")
 
         # bot presence
         activity_type = discord.ActivityType.playing
