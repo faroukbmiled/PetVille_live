@@ -21,18 +21,18 @@ class Admin(commands.Cog):
     """Error handler"""
 
     def __init__(self, bot: petville) -> None:
-        global thumb, errorgif, logoMsize ,logoSsize, doggif, api_status,\
-        api_states, itsfinegif
         with open('data/links.json') as links:
             data = json.load(links)
-        itsfinegif = data ["itsfinegif"]
-        api_status = data["api_status"]
-        api_states = data["api_states"]
-        doggif = data["doggif"]
-        logoSsize = data["logoSsize"]
-        logoMsize = data["logoMsize"]
-        errorgif = data["errorgif"]
-        thumb = data["thumb"]
+        self.web_link = data ["web_link"]
+        self.port_link = data ["port_link"]
+        self.itsfinegif = data ["itsfinegif"]
+        self.api_status = data["api_status"]
+        self.api_states = data["api_states"]
+        self.doggif = data["doggif"]
+        self.logoSsize = data["logoSsize"]
+        self.logoMsize = data["logoMsize"]
+        self.errorgif = data["errorgif"]
+        self.thumb = data["thumb"]
         self.bot: petville = bot
 
     @commands.command()
@@ -66,51 +66,51 @@ class Admin(commands.Cog):
             await self.bot.tree.sync()
             await ctx.reply(f"Un-Synced global !")
 
-    @app_commands.command(description='About [ANoX] Ryuk')
-    async def ryuk(self, interaction: Interaction) -> None:
-        """info about ryuk"""
+    @app_commands.command(description='About PetVille')
+    async def about(self, interaction: Interaction) -> None:
+        """info about petville"""
 
         embed = discord.Embed(color=0x000000)
 
-        embed.set_image(url="https://cdn.discordapp.com/avatars/346011366747930624/c7fe28d56e899f4955e9e405e6986996.webp?size=256")
-        embed.add_field(name="About [ANoX] Ryuk!",value='Server Admin/Clan Founder', inline=False)
+        embed.set_thumbnail(url=self.logoSsize)
+        embed.set_image(url=self.errorgif)
+        embed.add_field(name="About PetVille!",value='* Your Pets are in safe Hands!', inline=False)
         embed.add_field(
             name='Info:',
-            value=f"* FPS lover, mainly plays Valorant \n(rank: ASC2)\n"
-            "* One of the Founders of 'ANoX Clan' \nand an OG COD player\n"
-            "* A Software/Web Dev ,currently studying \nat Holberton School\n",
+            value=f"* We simply host a platform that offers both\n"
+            "a pet sitting service and the sitting job itself",
             inline=False,
         )
-        embed.add_field(name="More...",value='* Find more about Ryuk from the links bellow!.', inline=False)
+        embed.add_field(name="More...",value='* Find more about PetVille from the links bellow!.', inline=False)
         view = ui.View()
-        view.add_item(ui.Button(label='Github', url="https://github.com/faroukbmiled", row=0))
-        view.add_item(ui.Button(label='Email', url="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlFmSRrLHffRzcPGbFZgbdJvswFhKxDSHXmMgrJRfvVMRNMRJZcvQphGxCwwFpkcKVwxdq", row=0))
+        view.add_item(ui.Button(label='Website', url=self.web_link, row=0))
+        view.add_item(ui.Button(label='Portfolio', url=self.port_link, row=0))
 
         await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
     @app_commands.command(description='list states')
     async def states(self, interaction: Interaction) -> None:
         """info about states"""
-        api = api_states
+        api = self.api_states
         status = get(api)
         
         if status.status_code != 200:
             
             embed = discord.Embed(color=0xFF0000)
             embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
-            embed.set_thumbnail(url=thumb)
-            embed.set_image(url=errorgif)
+            embed.set_thumbnail(url=self.thumb)
+            embed.set_image(url=self.errorgif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
+            view.add_item(ui.Button(label='API Link', url=self.api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
 
         elif len(get(api).json()) == 0:
             embed = discord.Embed(color=0xFFA500)
             embed.add_field(name=f"**Server Status** [{status.status_code}]:",value="**Your Database is empty!**", inline=False)
-            embed.set_image(url=itsfinegif)
+            embed.set_image(url=self.itsfinegif)
             view = ui.View()
-            embed.set_thumbnail(url=logoMsize)
-            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
+            embed.set_thumbnail(url=self.logoMsize)
+            view.add_item(ui.Button(label='API Link', url=self.api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
             
         else:
@@ -125,32 +125,32 @@ class Admin(commands.Cog):
             embed = discord.Embed(color=0x7ac3e6)
             embed.add_field(name=f"**States:** [{length}]",value=formated, inline=False)
             view = ui.View()
-            embed.set_thumbnail(url=logoSsize)
-            view.add_item(ui.Button(label='API Link', url=api_states, row=0))
+            embed.set_thumbnail(url=self.logoSsize)
+            view.add_item(ui.Button(label='API Link', url=self.api_states, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
     @app_commands.command(description='status')
     async def status(self, interaction: Interaction) -> None:
         """info about status"""
-        status = get(api_status)
+        status = get(self.api_status)
         if status.status_code != 200:
 
             embed = discord.Embed(color=0xFF0000)
             embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
-            embed.set_thumbnail(url=thumb)
-            embed.set_image(url=errorgif)
+            embed.set_thumbnail(url=self.thumb)
+            embed.set_image(url=self.errorgif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
+            view.add_item(ui.Button(label='API Link', url=self.api_status, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
         else:
             ok = status.json().get('status')
             embed = discord.Embed(color=0x00FF00)
             embed.add_field(name=f"**Server Status:** [{ok}]",
             value=f"**Server is up and runing!**\n", inline=False)
-            embed.set_thumbnail(url=thumb)
-            embed.set_image(url=doggif)
+            embed.set_thumbnail(url=self.thumb)
+            embed.set_image(url=self.doggif)
             view = ui.View()
-            view.add_item(ui.Button(label='API Link', url=api_status, row=0))
+            view.add_item(ui.Button(label='API Link', url=self.api_status, row=0))
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
 async def setup(bot: petville) -> None:
