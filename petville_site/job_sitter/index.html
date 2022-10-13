@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="progress">
+      <div id="progress-bar"></div>
+      <ul id="progress-num">
+        <li class="step active">
+          <div id="box" class="form-box">
+            <img class="logo" src="../images/logop.png" />
+            <h2>Where are you applying for pet sitter jobs?</h2>
+            <form id="login" class="input-group">
+              <h4>Country*</h4>
+              <select name="Country" class="select1">
+                <option value="none">Select</option>
+                <option value="t">Tunisia</option>
+              </select>
+              <h4 class="state">State*</h4>
+              <select name="s" class="select2">
+                <option value="none">Select</option>
+                <option value="t">Ariana</option>
+                <option value="t">Beja</option>
+                <option value="t">Ben Arous</option>
+                <option value="t">Bizert</option>
+                <option value="t">Gabes</option>
+                <option value="t">Gafsa</option>
+                <option value="t">Jendouba</option>
+                <option value="t">Kairouan</option>
+                <option value="t">kasserine</option>
+                <option value="t">kebili</option>
+                <option value="t">kef</option>
+                <option value="t">Mahdia</option>
+                <option value="t">Manouba</option>
+                <option value="t">Medenine</option>
+                <option value="t">Monastir</option>
+                <option value="t">Nabeul</option>
+                <option value="t">Sfax</option>
+                <option value="t">Sidi Bouzid</option>
+                <option value="t">Siliana</option>
+                <option value="t">Soussa</option>
+                <option value="t">Tataouine</option>
+                <option value="t">Tozeur</option>
+                <option value="t">Tunis</option>
+                <option value="t">Zaghouan</option>
+              </select>
+              <h4 class="city">City*</h4>
+              <input type="text" class="city-text" />
+              <button id="progress-next" class="btn">Next</button>
+            </form>
+          </div>
+        </li>
+        <li class="step">
+          <div id="box" class="form-box">
+            <img class="logo" src="../images/logop.png" />
+            <h2 class="contact">How can we contact you?</h2>
+            <form id="login" class="input-group">
+              <h4 class="email">Email Address</h4>
+              <input type="text" class="email-text" />
+              <h4 class="phone">Phone Number</h4>
+              <input type="text" class="phone-text" />
+              <h5 class="email-shared">
+                You email will not be shared publicly.<br />Unsubscribe anytime
+                in Petville
+              </h5>
+              <button id="progress-next" class="btn">Next</button>
+            </form>
+          </div>
+        </li>
+        <li class="step">
+          <div class="form-box" data-step>
+            <img class="logo" src="../images/logop.png" />
+            <h2 class="title">What should they call you?</h2>
+            <div class="form-group">
+              <h4 class="first-name">First Name</h4>
+              <input
+                type="text"
+                name="firstName"
+                class="firstName"
+                id="firstName"
+              />
+            </div>
+            <div class="form-group">
+              <h4 class="lastName">Last Name</h4>
+              <input type="text" class="last-Name" id="lastName" />
+            </div>
+            <button id="progress-next" class="btn1">Next</button>
+          </div>
+        </li>
+        <li class="step">
+          <div class="form-box" data-step>
+            <img class="logo" src="../images/logop.png" />
+            <h2 class="title">Almost there, asmo iji hna</h2>
+            <div class="form-group">
+              <h4 class="password">Password</h4>
+              <input
+                type="text"
+                name="firstName"
+                class="password-text"
+                id="firstName"
+              />
+              <button id="progress-next" class="btn1">Next</button>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="form-box" data-step>
+            <img class="logo" src="../images/logop.png" />
+            <h2 class="title4">What's your rate?</h2>
+            <div class="form-group">
+              <h4 class="password">Starting rate</h4>
+              <input
+                type="text"
+                name="rate"
+                class="rate"
+                id="firstName"
+              /><select name="Country" class="select3">
+                <option value="none">/hour</option>
+                <option value="t">/day</option>
+              </select>
+              <h5 class="rate-msg">
+                It’s ok if aren’t sure about the rate, add an approximate one.
+                <br />You can always change it later.
+              </h5>
+              <button id="progress-next" class="btn1">Next</button>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="form-box1" data-step>
+            <img class="logo" src="../images/logop.png" />
+            <h2 class="title5">What should pet owners know about you?</h2>
+            <div class="form-group">
+              <h4 class="h">Headline*</h4>
+              <label class="head"
+                >State who you are & what you're offering</label
+              >
+              <textarea name="rate" class="headline" id="headline">
+A catchy descriptive headline recives more resposes</textarea
+              >
+              <h4 class="intro">Introduce your work</h4>
+              <label class="introd"
+                >Describe what you do and why you are the best</label
+              >
+              <textarea name="rate" class="introduce" id="introduce"></textarea>
+              <h5 class="add">
+                We've added a description for you to start with, <br />feel free
+                to edit it now or later on.
+              </h5>
+              <h4 class="questions">Get started with these questions:</h4>
+              <ul class="list">
+                <li>What services do you offer?</li>
+                <li>what experience do you have?</li>
+                <li>why should they hire you?</li>
+                <li>Any special qualifications or training?</li>
+                <li>What's your availability?</li>
+              </ul>
+              <button type="submit" class="btn1">Next</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
