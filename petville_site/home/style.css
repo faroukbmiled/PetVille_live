@@ -364,3 +364,48 @@ label{
 	  width: 100%;
 	}
   }
+  .form-box{
+	width: 650px;
+	height:220px;
+	position: relative;
+	margin: 6% auto;
+	background: #fcfbfb ;
+	padding: 3px;
+	border-radius : 25px;
+	box-shadow:  20px 20px 50px black ;
+	bottom:100px;
+}
+.image{
+	width: 150px;
+	height: 150px;
+	position: relative;
+	bottom: -30px;
+}
+h3{
+	position: relative;
+	bottom:120px;
+	left: 40%;
+}
+p{
+	position: relative;
+	bottom:110px;
+	left: 35%;
+	color:#131313;
+}
+.button1 {
+    display: flex;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 30%;
+    width: 20%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #7ac3e6;
+    background: -webkit-linear-gradient(to right,#7ac3e6,#7ac3e6);
+    background: linear-gradient(to right,#7ac3e6,#7ac3e6);
+    color: #fff;
+	position: relative;
+	bottom:195px;
+	left: 80%;
+  }
