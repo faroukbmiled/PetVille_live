@@ -361,6 +361,12 @@ small,
   left: 50px;
   font-weight: 400; }
 
+.testt {
+  position: relative;
+  font-size: 90%;
+  left: 80px;
+  font-weight: 400; }
+
 mark,
 .mark {
   padding: 0.2em;
@@ -8176,7 +8182,7 @@ h1, h2, h3, h4, h5,
   background: #fbceb5 !important; }
 
 .ftco-section {
-  padding: 7em 0; }
+  padding: 1em 0; }
 
 .ftco-no-pt {
   padding-top: 0; }
