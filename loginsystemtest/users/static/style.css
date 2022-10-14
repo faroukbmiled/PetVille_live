@@ -1,5 +1,5 @@
 body{
-	background-image: url('/static/img/back11.jpg');
+	background-image: url('/static/images/back11.jpg');
 }
 .form-box{
 	width: 340px;
@@ -38,7 +38,7 @@ h2{
 }
 .form-control{
 	box-sizing: content-box;
-	position: static;
+	position: center;
 	width: 90%;
 	bottom: -9px;
 	padding: 10px 0;
