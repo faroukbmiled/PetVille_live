@@ -8191,10 +8191,8 @@ h1, h2, h3, h4, h5,
   width: 80px; }
 
 .img {
-  
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center; }
+  background-repeat: no-repeat;}
 
 .login-wrap {
   position: relative;

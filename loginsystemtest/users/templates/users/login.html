@@ -1,11 +1,11 @@
 
 {% load static %}
-{% block title %} Login Page {% endblock title%}
+{% block title %} {% endblock title%}
 {% block content %}
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 10</title>
+  	<title>PetVille Sign in</title>
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,14 +15,16 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="{% static '/css/style.css' %}">
-
+	
 	</head>
 	
-	<body class="img js-fullheight" style="background-image: url(/static/images/back11.jpg);">
+	<body class="img js-fullheight" style="background-image: url(/static/images/00.jpg);">
 	<section class="ftco-section">
 		<div class="container">
+			
 			<form method="POST">
 				{% csrf_token %}
+				
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
 					<img class="heading-section"src="/static/images/logop.png">
@@ -33,11 +35,24 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">Welcome back to PetVille!</h3>
+				  {% if form.errors %}
+				  <div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
+					  <div id="form_errors">
+						  {% for key, value in form.errors.items %}
+							  <strong>error, please check username/password </strong>
+						  {% endfor %}
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+					  </button>
+				  </div>
+				  {% endif %}
 		      	<form action="#" class="signin-form">
 		      		<div class="form-group">
 						{{ form.username }}
 		      		</div>
 	            <div class="form-group">
+					
 					{{ form.password }}
 	            </div>
 	            <div class="form-group">
@@ -70,7 +85,7 @@
   <script src="{% static '/js/popper.js' %}"></script>
   <script src="{% static '/js/bootstrap.min.js' %}"></script>
   <script src="{% static '/js/main.js' %}"></script>
-  <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js" ></script>
 
 	</body>
 </html>
