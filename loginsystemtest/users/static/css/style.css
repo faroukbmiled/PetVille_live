@@ -8186,7 +8186,7 @@ h1, h2, h3, h4, h5,
 
 .heading-section {
   position: relative;
-  top: 45px;
+  top: 35px;
   right: 12px;
   width: 80px; }
 
@@ -8271,6 +8271,7 @@ textarea.form-control {
   display: block;
   position: relative;
   padding-left: 30px;
+  left: 5px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 16px;
