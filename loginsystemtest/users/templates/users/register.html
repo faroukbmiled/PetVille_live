@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>PetVille Sign in</title>
+  	<title>Sign up!</title>
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,19 +27,19 @@
 				
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<img class="heading-section"src="/static/images/logop.png">
+					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Welcome back to PetVille!</h3>
+		      	<h3 class="mb-4 centrelatrabhek">Sign up right now!</h3>
 				  {% if form.errors %}
 				  <div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
 					  <div id="form_errors">
 						  {% for key, value in form.errors.items %}
-							  <strong>error, please check username/password </strong>
+							  <strong>pass is too short </strong>
 						  {% endfor %}
 					  </div>
 					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -67,21 +67,14 @@
 	            </div>
 	            <div class="form-group">
 					<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button><br><br>
-	            </div>
-	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-		            	<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="{% url 'password_reset' %}" style="color: #ADD8E6">Forgot Password?</a>
-								</div>
-	            </div>
 				<hr width="90%" style=height:0.3px; color="#ADD8E6">
+	            <div class="form-group d-md-flex">			
+					<div class="tcanter" style="left: 24%; position: relative;">
+					<a href="{% url 'login' %}" style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign in</span></a>
+					</div>
+	            </div>
 				<div class="testt">
-					<a href="{% url 'login' %}" style="color: #ADD8E6">Have an account yet? Sign in</a>
+					
 					
 				</div>
 	          </form>

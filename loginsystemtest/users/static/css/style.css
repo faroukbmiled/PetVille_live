@@ -7936,6 +7936,11 @@ button.bg-dark:focus {
 .text-center {
   text-align: center !important; }
 
+.centrelatrabhek {
+  position: relative;
+  text-align: center;
+  right: 2%; }
+
 @media (min-width: 576px) {
   .text-sm-left {
     text-align: left !important; }
