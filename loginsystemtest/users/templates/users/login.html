@@ -1,0 +1,45 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block title %} Login Page {% endblock title%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <div id="form_errors">
+        {% for key, value in form.errors.items %}
+          <strong>{{ value }}</strong>
+          {% endfor %}
+           </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endif %}
+    <div id="box" class="form-box">
+		  <img class="logo"src="{% static 'logop.png' %}">
+		  <h2>Welcome back to Petville</h2>
+    <form method="POST">
+      {% csrf_token %}
+        <form id="login" class="input-group">
+          {{ form.username }}
+          {{ form.password }}
+		
+        <input type="checkbox" class="chech-box" /><span
+          >Remember Password</span
+        >
+        <button name="login" class="submit-btn" id="login">Sign in</button>
+      </form>
+    </div>
+
+  </body>
+</html>
+{% endblock content %}

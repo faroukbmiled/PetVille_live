@@ -1,0 +1,72 @@
+body{
+	background-image: url('/static/img/back11.jpg');
+}
+.form-box{
+	width: 340px;
+	height:470px;
+	position: relative;
+	margin: 6% auto;
+	background: #fcfbfb;
+	padding: 3px;
+	opacity: 0.8;
+	overflow: hidden;
+	border-radius : 95px;
+	box-shadow:  20px 20px 50px black ;
+}
+.logo{
+	width: 60px;
+	height: 50px;
+	position:relative;
+	left: 40%;
+	bottom: -22px;
+}
+h2{
+	position:relative;
+	left: 13%;
+	bottom: -22px;
+	font-size: 1.5em;
+	
+
+}
+.toggle-btn{
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+}
+.form-control{
+	box-sizing: content-box;
+	position: static;
+	width: 90%;
+	bottom: -9px;
+	padding: 10px 0;
+	margin: 5px 0;
+	margin-top:10px;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+.submit-btn{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: linear-gradient(to right, #7cd6f1,#a3d9f8 );
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+.card-body{
+	margin: 30px 10px 30px 0;
+}
+
+#login{
+	left: 35px;
+}
+
