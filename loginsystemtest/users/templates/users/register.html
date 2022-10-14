@@ -1,88 +1,102 @@
-{% extends "users/base.html" %}
-{% block title %} Register Page {% endblock title%}
-{% block content %}
-    <div class="form-content my-3 p-3">
-		<div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="card shadow-lg border-0 rounded-lg mt-0 mb-5">
-                        <div class="card-header justify-content-center">
-                        	<h3 class="font-weight-light my-4 text-center">Create Account</h3>
-                        </div>
-                        <div class="card-body">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {% if form.errors %}
-                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                        <div id="form_errors">
-                                            {% for key, value in form.errors.items %}
-                                                <strong>{{ value }}</strong>
-                                            {% endfor %}
-                                        </div>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                {% endif %}
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="small mb-1">First Name</label>
-                                            {{ form.first_name }}
-                                            <label class="small mb-1">Confirm First Name</label>
-                                            {{ form.first_name }}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="small mb-1">Last Name</label>
-                                            {{ form.last_name }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-		                                <div class="form-group">
-		                                	<label class="small mb-1">Username</label>
-		                                    {{ form.username }}
-		                                </div>
-		                            </div>
-                                    <div class="col-md-6">
-		                                <div class="form-group">
-		                                	<label class="small mb-1">Email</label>
-		                                    {{ form.email }}
-		                                </div>
-		                            </div>
-		                        </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="small mb-1">Password</label>
-                                            {{ form.password1 }}
-                                            {{ form.errors.password }}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
 
-                                        <div class="form-group">
-                                            <label class="small mb-1">Confirm Password</label>
-                                            {{ form.password2 }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group mt-4 mb-0">
-                                    <button type="submit" class="col-md-12 btn btn-dark">Sign Up</button><br><br>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card-footer text-center">
-                            <div class="small">
-                                <a href="{% url 'login' %}">Have an account? Go to Sign in</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
+{% load static %}
+{% block title %} {% endblock title%}
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>PetVille Sign in</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+	
+	</head>
+	
+	<body class="img js-fullheight" style="background-image: url(/static/images/00.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			
+			<form method="POST">
+				{% csrf_token %}
+				
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<img class="heading-section"src="/static/images/logop.png">
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Welcome back to PetVille!</h3>
+				  {% if form.errors %}
+				  <div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
+					  <div id="form_errors">
+						  {% for key, value in form.errors.items %}
+							  <strong>error, please check username/password </strong>
+						  {% endfor %}
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+					  </button>
+				  </div>
+				  {% endif %}
+		      	<form action="#" class="signin-form">
+		      		<div class="form-group">
+						{{ form.first_name }}
+					<div class="form-group"></div>
+						{{ form.last_name }}
+					<div class="form-group"></div>
+						{{ form.username }}
+					<div class="form-group"></div>
+						{{ form.email }}
+					<div class="form-group"></div>
+						{{ form.password1 }}
+					<div class="form-group"></div>
+						{{ form.errors.password }}
+					<div class="form-group"></div>
+						{{ form.password2 }}
+		      		</div>
+	            <div class="form-group">
+	            </div>
+	            <div class="form-group">
+					<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button><br><br>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="{% url 'password_reset' %}" style="color: #ADD8E6">Forgot Password?</a>
+								</div>
+	            </div>
+				<hr width="90%" style=height:0.3px; color="#ADD8E6">
+				<div class="small">
+					<a href="{% url 'login' %}" style="color: #ADD8E6">Have an account yet? Sign in</a>
+					
+				</div>
+	          </form>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static '/js/jquery.min.js' %}"></script>
+  <script src="{% static '/js/popper.js' %}"></script>
+  <script src="{% static '/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/js/main.js' %}"></script>
+  <script src="{% static '/js/bootstrap-show-password.min.js' %}"></script>
+
+	</body>
+</html>
 {% endblock content %}
