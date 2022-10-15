@@ -18,7 +18,7 @@
 	
 	</head>
 	
-	<body class="img js-fullheight" style="background-image: url(/static/images/00.jpg);">
+	<body class="img js-fullheight" style="background-image: url(/static/images/bur.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			
@@ -56,24 +56,24 @@
 					{{ form.password }}
 	            </div>
 	            <div class="form-group">
-	            	<button name="login" class="form-control btn btn-primary submit px-3" id="login">Sign in</button>
+	            	<button name="login" class="form-control btn btn-primary submit px-3" id="login" >Sign in</button>
 	            </div>
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
 						
-		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+		            	<label class="checkbox-wrap checkbox-primary" style="color: #7EC8E3">Remember Me
 									  <input type="checkbox" checked>
 									  <span class="checkmark"></span>
 									  {{ form.remember_me }}
 									</label>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="{% url 'password_reset' %}" style="color: #ADD8E6">Forgot Password?</a>
+									<a href="{% url 'password_reset' %}" style="color: #7EC8E3">Forgot Password?</a>
 								</div>
 	            </div>
 				<hr width="90%" style=height:0.3px; color="#ADD8E6">
 				<div class="small">
-					<a href="{% url 'users-register' %}" style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign up</span></a>
+					<a href="{% url 'users-register' %}" style="color: #7EC8E3">Have an account?<span style="color: #ff0000"> Sign up</span></a>
 					
 				</div>
 	          </form>

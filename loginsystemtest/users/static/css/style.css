@@ -2255,7 +2255,7 @@ fieldset:disabled a.btn {
 
 .btn-dark {
   color: #fff;
-  background-color: #343a40;
+  background-color: #2584e2;
   border-color: #343a40; }
   .btn-dark:hover {
     color: #fff;
@@ -8346,9 +8346,9 @@ textarea.form-control {
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #ADD8E6 !important;
-    border: 1px solid #ADD8E6 !important;
-    color: #000 !important; }
+    background: #7EC8E3 !important;
+    border: 1px solid #7EC8E3 !important;
+    color: #fff !important; }
     .btn.btn-primary:hover {
       border: 1px solid #ADD8E6;
       background: transparent;
