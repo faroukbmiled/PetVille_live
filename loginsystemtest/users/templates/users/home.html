@@ -7,7 +7,7 @@
 <form method="POST">
 {% csrf_token %}
 </form>
-<title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+<title>PetVille</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
@@ -17,19 +17,19 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container">
-<a class="navbar-brand" href="home.html"><span class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
+<a class="navbar-brand" href="/"><span class="flaticon-pawprint-1 mr-2"></span>PetVille</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 <span class="fa fa-bars"></span> Menu
 </button>
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav ml-auto">
-<li class="nav-item active"><a href="home.html" class="nav-link">Home</a></li>
+<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
 <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-<li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
-<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-<li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+<li class="nav-item"><a href="/vet" class="nav-link">Veterinarian</a></li>
+<li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+<li class="nav-item"><a href="/gallery" class="nav-link">Gallery</a></li>
+<li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+<li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
 {% if user.is_authenticated %}
 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
 <a href="profile/"><img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;" ></img></a>
@@ -46,7 +46,7 @@
 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
 <div class="col-md-11 ftco-animate text-center">
 <h1 class="mb-4">Highest Quality Care For Pets You'll Love </h1>
-<p><a href="home.html#" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
+<p><a href="/" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
 </div>
 </div>
 </div>
@@ -55,14 +55,14 @@
 <div class="container">
 <div class="row">
 <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-<div class="d-block services active text-center">
+<div class="d-block services text-center">
 <div class="icon d-flex align-items-center justify-content-center">
 <span class="flaticon-blind"></span>
 </div>
 <div class="media-body">
 <h3 class="heading">Dog Walking</h3>
 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-<a href="home.html#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+<a href="/" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
 </div>
 </div>
 </div>
@@ -74,7 +74,7 @@
 <div class="media-body">
 <h3 class="heading">Pet Daycare</h3>
 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-<a href="home.html#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+<a href="/" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
 </div>
 </div>
 </div>
@@ -86,7 +86,7 @@
 <div class="media-body">
 <h3 class="heading">Pet Grooming</h3>
 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
-<a href="home.html#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+<a href="/" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
 </div>
 </div>
 </div>
@@ -398,7 +398,7 @@
 <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
 <li><span class="fa fa-check mr-2"></span>Free Supports</li>
 </ul>
-<a href="home.html#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+<a href="/" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 </div>
 </div>
 </div>
@@ -414,7 +414,7 @@
 <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
 <li><span class="fa fa-check mr-2"></span>Free Supports</li>
 </ul>
-<a href="home.html#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+<a href="/" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 </div>
 </div>
 </div>
@@ -430,7 +430,7 @@
 <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
 <li><span class="fa fa-check mr-2"></span>Free Supports</li>
 </ul>
-<a href="home.html#" class="btn btn-primary d-block px-2 py-3">Get Started</a>
+<a href="/" class="btn btn-primary d-block px-2 py-3">Get Started</a>
 </div>
 </div>
 </div>
@@ -540,11 +540,11 @@
 </a>
 <div class="text p-4">
 <div class="meta mb-2">
-<div><a href="home.html#">April 07, 2020</a></div>
-<div><a href="home.html#">Admin</a></div>
-<div><a href="home.html#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+<div><a href="/">April 07, 2020</a></div>
+<div><a href="/">Admin</a></div>
+<div><a href="/" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
 </div>
-<h3 class="heading"><a href="home.html#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+<h3 class="heading"><a href="/">Even the all-powerful Pointing has no control about the blind texts</a></h3>
 </div>
 </div>
 </div>
@@ -554,11 +554,11 @@
 </a>
 <div class="text p-4">
 <div class="meta mb-2">
-<div><a href="home.html#">April 07, 2020</a></div>
-<div><a href="home.html#">Admin</a></div>
-<div><a href="home.html#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+<div><a href="/">April 07, 2020</a></div>
+<div><a href="/">Admin</a></div>
+<div><a href="/" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
 </div>
-<h3 class="heading"><a href="home.html#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+<h3 class="heading"><a href="/">Even the all-powerful Pointing has no control about the blind texts</a></h3>
 </div>
 </div>
 </div>
@@ -568,11 +568,11 @@
 </a>
 <div class="text p-4">
 <div class="meta mb-2">
-<div><a href="home.html#">April 07, 2020</a></div>
-<div><a href="home.html#">Admin</a></div>
-<div><a href="home.html#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+<div><a href="/">April 07, 2020</a></div>
+<div><a href="/">Admin</a></div>
+<div><a href="/" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
 </div>
-<h3 class="heading"><a href="home.html#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+<h3 class="heading"><a href="/">Even the all-powerful Pointing has no control about the blind texts</a></h3>
 </div>
 </div>
 </div>
@@ -585,7 +585,7 @@
 <div class="row d-md-flex justify-content-end">
 <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
 <h2 class="mb-4">Free Consultation</h2>
-<form action="home.html#" class="appointment">
+<form action="/" class="appointment">
 <div class="row">
 <div class="col-md-12">
 <div class="form-group">
@@ -653,9 +653,9 @@
 <h2 class="footer-heading">Petsitting</h2>
 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
 <ul class="ftco-footer-social p-0">
-<li class="ftco-animate"><a href="home.html#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-<li class="ftco-animate"><a href="home.html#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-<li class="ftco-animate"><a href="home.html#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+<li class="ftco-animate"><a href="/" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="ftco-animate"><a href="/" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+<li class="ftco-animate"><a href="/" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
 </ul>
 </div>
 <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -663,22 +663,22 @@
 <div class="block-21 mb-4 d-flex">
 <a class="img mr-4 rounded" style="background-image: url(/static/images/image_1.jpg);"></a>
 <div class="text">
-<h3 class="heading"><a href="home.html#">Even the all-powerful Pointing has no control about</a></h3>
+<h3 class="heading"><a href="/">Even the all-powerful Pointing has no control about</a></h3>
 <div class="meta">
-<div><a href="home.html#"><span class="icon-calendar"></span> April 7, 2020</a></div>
-<div><a href="home.html#"><span class="icon-person"></span> Admin</a></div>
-<div><a href="home.html#"><span class="icon-chat"></span> 19</a></div>
+<div><a href="/"><span class="icon-calendar"></span> April 7, 2020</a></div>
+<div><a href="/"><span class="icon-person"></span> Admin</a></div>
+<div><a href="/"><span class="icon-chat"></span> 19</a></div>
 </div>
 </div>
 </div>
 <div class="block-21 mb-4 d-flex">
 <a class="img mr-4 rounded" style="background-image: url(/static/images/image_2.jpg);"></a>
 <div class="text">
-<h3 class="heading"><a href="home.html#">Even the all-powerful Pointing has no control about</a></h3>
+<h3 class="heading"><a href="/">Even the all-powerful Pointing has no control about</a></h3>
 <div class="meta">
-<div><a href="home.html#"><span class="icon-calendar"></span> April 7, 2020</a></div>
-<div><a href="home.html#"><span class="icon-person"></span> Admin</a></div>
-<div><a href="home.html#"><span class="icon-chat"></span> 19</a></div>
+<div><a href="/"><span class="icon-calendar"></span> April 7, 2020</a></div>
+<div><a href="/"><span class="icon-person"></span> Admin</a></div>
+<div><a href="/"><span class="icon-chat"></span> 19</a></div>
 </div>
 </div>
 </div>
@@ -686,12 +686,12 @@
 <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
 <h2 class="footer-heading">Quick Links</h2>
 <ul class="list-unstyled">
-<li><a href="home.html#" class="py-2 d-block">Home</a></li>
-<li><a href="home.html#" class="py-2 d-block">About</a></li>
-<li><a href="home.html#" class="py-2 d-block">Services</a></li>
-<li><a href="home.html#" class="py-2 d-block">Works</a></li>
-<li><a href="home.html#" class="py-2 d-block">Blog</a></li>
-<li><a href="home.html#" class="py-2 d-block">Contact</a></li>
+<li><a href="/" class="py-2 d-block">Home</a></li>
+<li><a href="/" class="py-2 d-block">About</a></li>
+<li><a href="/" class="py-2 d-block">Services</a></li>
+<li><a href="/" class="py-2 d-block">Works</a></li>
+<li><a href="/" class="py-2 d-block">Blog</a></li>
+<li><a href="/" class="py-2 d-block">Contact</a></li>
 </ul>
 </div>
 <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -699,15 +699,14 @@
 <div class="block-23 mb-3">
 <ul>
 <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-<li><a href="home.html#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-<li><a href="home.html#"><span class="icon fa fa-paper-plane"></span><span class="text"><span class="__cf_email__" data-cfemail="2841464e476851475d5a4c4745494146064b4745">[email&#160;protected]</span></span></a></li>
+<li><a href="/"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+<li><a href="/"><span class="icon fa fa-paper-plane"></span><span class="text"><span class="__cf_email__" data-cfemail="2841464e476851475d5a4c4745494146064b4745">[email&#160;protected]</span></span></a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="row mt-5">
 <div class="col-md-12 text-center">
-<p class="copyright">
 </p>
 </div>
 </div>
@@ -716,15 +715,15 @@
 
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
 <script src="{% static 'js/jquery.min2.js' %}"></script>
-<script src="{% static 'js/jquery-migrate-3.0.1.min.js+popper.min.js+bootstrap.min.js.pagespeed.jc.GwcvD9Apdw.js' %}"></script><script>eval(mod_pagespeed_0ztj8eK1zU);</script>
+<script src="{% static 'js/animal3.js' %}"></script><script>eval(mod_pagespeed_0ztj8eK1zU);</script>
 <script>eval(mod_pagespeed_9gxkp99emx);</script>
 <script>eval(mod_pagespeed_z5q9ug_Tnu);</script>
-<script src="{% static 'js/jquery.easing.1.3.js+jquery.waypoints.min.js+jquery.stellar.min.js+jquery.animateNumber.min.js+bootstrap-datepicker.js.pagespeed.jc.NY36W3F_1b.js' %}"></script><script>eval(mod_pagespeed_PheztQ5KeU);</script>
+<script src="{% static 'js/animal1.js' %}"></script><script>eval(mod_pagespeed_PheztQ5KeU);</script>
 <script>eval(mod_pagespeed_7JeVy$gaKh);</script>
 <script>eval(mod_pagespeed_7eAOlpDE5G);</script>
 <script>eval(mod_pagespeed_wYcbH3bMHt);</script>
 <script>eval(mod_pagespeed_rlMM_XDUX_);</script>
-<script src="{% static 'js/jquery.timepicker.min.js+owl.carousel.min.js+jquery.magnific-popup.min.js+scrollax.min.js+google-map.js.pagespeed.jc.EeVA4cZ-NE.js' %}"></script><script>eval(mod_pagespeed_RRE27dWFEX);</script>
+<script src="{% static 'js/animal2.js' %}"></script><script>eval(mod_pagespeed_RRE27dWFEX);</script>
 <script>eval(mod_pagespeed_w7M8yeq96M);</script>
 <script>eval(mod_pagespeed_ZnvqZjnXfC);</script>
 <script>eval(mod_pagespeed_5kC6qwcDZy);</script>
@@ -740,7 +739,7 @@
 
   gtag('config', 'UA-23581568-13');
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"75a309b67f06dcc7","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.8.1","si":100}' crossorigin="anonymous"></script>
+<script defer src="{% static 'js/home.js' %}"></script>
 </body>
 </html>
 </html>
