@@ -14,11 +14,11 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+	<link rel="stylesheet" href=" {% static '{% static '/css/style.css' %}' %} ">
 	
 	</head>
 	
-	<body class="img js-fullheight" style="background-image: url(/static/images/00.jpg);">
+	<body class="img js-fullheight" style="background-image: url( {% static '/static/images/00.jpg' %} );">
 	<section class="ftco-section">
 		<div class="container">
 			
@@ -27,7 +27,7 @@
 				
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
+					<a href=" {% static '/' %} "><img class="heading-section"src=" {% static '/static/images/logop.png' %} " ></img></a>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -70,7 +70,7 @@
 				<hr width="90%" style=height:0.3px; color="#ADD8E6">
 	            <div class="form-group d-md-flex">			
 					<div class="tcanter" style="left: 24%; position: relative;">
-					<a href="{% url 'login' %}" style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign in</span></a>
+					<a href=" {% static '{% url ' {% static 'login' %} ' %}' %} " style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign in</span></a>
 					</div>
 	            </div>
 				<div class="testt">
@@ -84,11 +84,11 @@
 		</div>
 	</section>
 
-	<script src="{% static '/js/jquery.min.js' %}"></script>
-  <script src="{% static '/js/popper.js' %}"></script>
-  <script src="{% static '/js/bootstrap.min.js' %}"></script>
-  <script src="{% static '/js/main.js' %}"></script>
-  <script src="{% static '/js/bootstrap-show-password.min.js' %}"></script>
+	<script src=" {% static '{% static '/js/jquery.min.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/popper.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/bootstrap.min.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/main.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/bootstrap-show-password.min.js' %}' %} "></script>
 
 	</body>
 </html>
