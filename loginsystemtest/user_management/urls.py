@@ -8,13 +8,19 @@ from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
 from users.views import CustomLoginView, ResetPasswordView, ChangePasswordView
+from rest_framework import routers
+from users import views
+from api import views
 
 from users.forms import LoginForm
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('users.urls')),
+
+    path('', include('api.urls')),
 
     path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='users/login.html',
                                            authentication_form=LoginForm), name='login'),

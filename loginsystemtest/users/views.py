@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordChangeView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import View
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Group
+from rest_framework import serializers
+from django.core import serializers
+from rest_framework import viewsets
+from rest_framework import permissions
+from django.shortcuts import render
 
 from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 
@@ -12,6 +19,9 @@ from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 def home(request):
     return render(request, 'users/home.html')
 
+# def user_list(request):
+#     data = serializers.serialize('json', User.objects.all())
+#     return JsonResponse(data, safe=False)
 
 class RegisterView(View):
     form_class = RegisterForm
