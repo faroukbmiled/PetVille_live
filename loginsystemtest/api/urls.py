@@ -5,8 +5,8 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'admin', views.CurrentUserViewSet)
+router.register(r'users', views.CurrentUserViewSet)
 
 urlpatterns = [
-    path('users/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
 ]
