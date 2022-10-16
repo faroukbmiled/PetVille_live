@@ -1,0 +1,94 @@
+
+{% load static %}
+{% block title %} {% endblock title%}
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>PetVille Sign in</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href=" {% static '{% static '/css/style.css' %}' %} ">
+	
+	</head>
+	
+	<body class="img js-fullheight" style="background-image: url( {% static '/static/images/00.jpg' %} );">
+	<section class="ftco-section">
+		<div class="container">
+			
+			<form method="POST">
+				{% csrf_token %}
+				
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<a href=" {% static '/' %} "><img class="heading-section"src=" {% static '/static/images/logop.png' %} " ></img></a>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Welcome back to PetVille!</h3>
+				  {% if form.errors %}
+				  <div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
+					  <div id="form_errors">
+						  {% for key, value in form.errors.items %}
+							  <strong>error, please check username/password </strong>
+						  {% endfor %}
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+					  </button>
+				  </div>
+				  {% endif %}
+		      	<form action="#" class="signin-form">
+		      		<div class="form-group">
+						{{ form.username }}
+		      		</div>
+	            <div class="form-group">
+					
+					{{ form.password }}
+	            </div>
+	            <div class="form-group">
+	            	<button name="login" class="form-control btn btn-primary submit px-3" id="login">Sign in</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+						
+		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									  {{ form.remember_me }}
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href=" {% static '{% url ' {% static 'password_reset' %} ' %}' %} " style="color: #ADD8E6">Forgot Password?</a>
+								</div>
+	            </div>
+				<hr width="90%" style=height:0.3px; color="#ADD8E6">
+				<div class="small">
+					<a href=" {% static '{% url ' {% static 'users-register' %} ' %}' %} " style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign up</span></a>
+					
+				</div>
+	          </form>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src=" {% static '{% static '/js/jquery.min.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/popper.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/bootstrap.min.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/main.js' %}' %} "></script>
+  <script src=" {% static '{% static '/js/bootstrap-show-password.min.js' %}' %} "></script>
+
+	</body>
+</html>
+{% endblock content %}
