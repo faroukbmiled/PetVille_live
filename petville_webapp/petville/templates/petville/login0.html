@@ -1,4 +1,4 @@
-{% extends "users/base.html" %}
+{% extends "petville/base.html" %}
 {% load static %}
 {% block title %} Login Page {% endblock title%}
 {% block content %}
@@ -62,7 +62,7 @@
                         </div>
                         <div class="card-footer text-center">
                             <div class="small">
-                                <a href="{% url 'users-register' %}">Don't have an account yet? Go to signup</a><br>
+                                <a href="{% url 'petville-register' %}">Don't have an account yet? Go to signup</a><br>
                                 <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
                             </div>
                         </div>

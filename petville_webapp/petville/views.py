@@ -17,7 +17,7 @@ from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 
 
 def home(request):
-    return render(request, 'users/home.html')
+    return render(request, 'petville/home.html')
 
 # def user_list(request):
 #     data = serializers.serialize('json', User.objects.all())
@@ -26,7 +26,7 @@ def home(request):
 class RegisterView(View):
     form_class = RegisterForm
     initial = {'key': 'value'}
-    template_name = 'users/register.html'
+    template_name = 'petville/register.html'
 
     def dispatch(self, request, *args, **kwargs):
         # will redirect to the home page if a user tries to access the register page while logged in
@@ -73,20 +73,20 @@ class CustomLoginView(LoginView):
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
-    template_name = 'users/password_reset.html'
-    email_template_name = 'users/password_reset_email.html'
-    subject_template_name = 'users/password_reset_subject'
+    template_name = 'petville/password_reset.html'
+    email_template_name = 'petville/password_reset_email.html'
+    subject_template_name = 'petville/password_reset_subject'
     success_message = "We've emailed you instructions for setting your password, " \
                       "if an account exists with the email you entered. You should receive them shortly." \
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
-    success_url = reverse_lazy('users-home')
+    success_url = reverse_lazy('petville-home')
 
 
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
-    template_name = 'users/change_password.html'
+    template_name = 'petville/change_password.html'
     success_message = "Successfully Changed Your Password"
-    success_url = reverse_lazy('users-home')
+    success_url = reverse_lazy('petville-home')
 
 
 @login_required
@@ -99,9 +99,9 @@ def profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='users-profile')
+            return redirect(to='petville-profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form})
