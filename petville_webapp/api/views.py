@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from importlib.resources import contents
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
@@ -19,6 +18,7 @@ from rest_framework.response import Response
 from http import HTTPStatus
 from django.http import HttpResponse
 from requests import get
+from django.test import TestCase
 import json
 
 
@@ -31,12 +31,7 @@ class LastLoginSerializer(viewsets.ReadOnlyModelViewSet):
     serializer_class = LastLoginSerializer
 
 
-class DriverlistViewset(APITestCase):
-    def empty_view(self, request):
-        content = {'please move along': 'nothing to see here'}
-        return Response(content, status=status.HTTP_404_NOT_FOUND)
-
-
-
-
+class IndexTests(APIView):
+    def test_success(self, request):
+        return ("test")
 
