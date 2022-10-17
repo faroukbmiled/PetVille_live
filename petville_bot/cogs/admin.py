@@ -118,7 +118,7 @@ class Admin(commands.Cog):
             jsonify = get(api).json()
             if status:
                 for i in jsonify:
-                    empty.append(f'{i["name"]}')
+                    empty.append(f'{i["username"]}')
             formated = ('\n* '.join(empty))
             length = len(jsonify)
 
@@ -144,6 +144,7 @@ class Admin(commands.Cog):
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
         else:
             ok = status.json().get('status')
+            code = status.json().get('code')
             embed = discord.Embed(color=0x00FF00)
             embed.add_field(name=f"**Server Status:** [{ok}]",
             value=f"**Server is up and runing!**\n", inline=False)
@@ -151,6 +152,7 @@ class Admin(commands.Cog):
             embed.set_image(url=self.doggif)
             view = ui.View()
             view.add_item(ui.Button(label='API Link', url=self.api_status, row=0))
+            embed.set_footer(text=f"Status Code: [{code}]")
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
 async def setup(bot: petville) -> None:
