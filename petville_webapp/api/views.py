@@ -32,6 +32,7 @@ class LastLoginSerializer(viewsets.ReadOnlyModelViewSet):
 
 
 class IndexTests(APIView):
-    def test_success(self, request):
-        return ("test")
+    def get(self, request, format=None):
+        usernames = [User.objects.all()]
+        return JsonResponse(usernames, safe=False)
 
