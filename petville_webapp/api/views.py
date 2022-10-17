@@ -11,6 +11,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import status
 from .serializers import CurrentUserSerializer
 from .serializers import LastLoginSerializer
+from django.views.generic.detail import DetailView
 from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework.test import APITestCase
@@ -31,8 +32,10 @@ class LastLoginSerializer(viewsets.ReadOnlyModelViewSet):
     serializer_class = LastLoginSerializer
 
 
-class IndexTests(APIView):
-    def get(self, request, format=None):
-        usernames = [User.objects.all()]
-        return JsonResponse(usernames, safe=False)
+class ServerStatus(viewsets.ViewSet):
+
+    def list(self, request, format=None):
+        return Response(status=status.HTTP_200_OK)
+
+
 
