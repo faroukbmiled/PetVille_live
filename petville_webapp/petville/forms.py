@@ -40,10 +40,20 @@ class RegisterForm(UserCreationForm):
                                                                   'data-toggle': 'password',
                                                                   'id': 'password',
                                                                   }))
+    age = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.TextInput(attrs={'placeholder': "Dog's age",
+                                                                  'class': 'form-control',
+                                                                  }))
+    dogname = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.TextInput(attrs={'placeholder': 'Dog Name',
+                                                                  'class': 'form-control',
+                                                                  }))
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname']
 
 
 class LoginForm(AuthenticationForm):

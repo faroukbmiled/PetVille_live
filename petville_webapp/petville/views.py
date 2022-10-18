@@ -12,6 +12,7 @@ from django.core import serializers
 from rest_framework import viewsets
 from rest_framework import permissions
 from django.shortcuts import render
+from .models import UserData
 
 from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 
@@ -41,17 +42,21 @@ class RegisterView(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}')
-
-            return redirect(to='login')
-
-        return render(request, self.template_name, {'form': form})
+        if request.method == "POST":
+            form = RegisterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                age = form.cleaned_data.get('age')
+                dogname = form.cleaned_data.get('dogname')
+                user = User.objects.get(username=username)
+                user_data = UserData.objects.create(user=user, age=age, dogname=dogname)
+                user_data.save()
+                return redirect('login')
+        else:
+            form = RegisterForm()
+        return render(request, self.template_name, {'form': form})  
+        
 
 
 # Class based view that extends from the built in login view to add a remember me functionality

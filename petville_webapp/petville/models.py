@@ -4,6 +4,12 @@ from PIL import Image
 
 
 # Extending User Model Using a One-To-One Link
+
+class UserData(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    age = models.PositiveIntegerField()
+    dogname = models.CharField(max_length=20)
+    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
@@ -22,3 +28,5 @@ class Profile(models.Model):
             new_img = (100, 100)
             img.thumbnail(new_img)
             img.save(self.avatar.path)
+            
+
