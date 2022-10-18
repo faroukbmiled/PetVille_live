@@ -36,7 +36,7 @@
             </li> {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}" class="nav-link">Logout</a>
             </li>
-            <a href="profile/">
+            <a href="../profile/">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
