@@ -13,6 +13,3 @@ class LastLoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'last_login')
-
-
-        

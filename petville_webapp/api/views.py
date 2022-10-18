@@ -14,14 +14,20 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework.test import APITestCase
 from rest_framework.response import Response
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 import requests
 
 
 class CurrentUserViewSet(viewsets.ReadOnlyModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = CurrentUserSerializer
 
 class LastLoginSerializer(viewsets.ReadOnlyModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = LastLoginSerializer
 
