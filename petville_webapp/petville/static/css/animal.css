@@ -4841,12 +4841,17 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
 }
 .ftco-navbar-light .navbar-brand{
   color:#000;
-  font-weight:80;
+  font-weight:800;
   font-size:28px;
-  position: relative;
-  bottom: 35px;
+  line-height:1
 }
-
+.pet{
+	height: 35px;
+	width: 35px;
+	position: relative;
+	bottom: 9px;
+	left: 12px;
+}
 .ftco-navbar-light .navbar-brand span{
   color:#7cd6f1
 }
@@ -4857,6 +4862,13 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   .ftco-navbar-light .navbar-brand{
       margin:10px 0
   }
+  .pet{
+	height: 55px;
+	width: 55px;
+	position:relative;
+	left: 20px;
+	bottom: 20%;
+}
 }
 @media (max-width:991.98px){
   .ftco-navbar-light .navbar-nav{
@@ -4928,6 +4940,7 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   .ftco-navbar-light .navbar-nav>.nav-item>.nav-link{
       border-bottom:1px solid rgba(0,0,0,.05)
   }
+  
 }
 .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu{
   border:none;
