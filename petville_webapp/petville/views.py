@@ -12,8 +12,9 @@ from django.core import serializers
 from rest_framework import viewsets
 from rest_framework import permissions
 from django.shortcuts import render
-from .models import UserData
+from .models import UserData, Profile
 from django.views.generic import TemplateView
+from django.views.generic.list import ListView
 
 from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm, UpdateUserData
 
@@ -93,6 +94,12 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'petville/change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('petville-home')
+    
+    
+class UserListView(ListView):
+
+    model = User
+    template_name = 'petville/users.html'
 
 
 
