@@ -1,0 +1,33 @@
+<h1>User List</h1>
+<h1 class="big mb-1">Users:</h1>
+{% for user in object_list %}
+    <li>{{ user }}</li>
+</div>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
+</ul>
+<h1 class="big mb-1">Dog names:</h1>
+{% for user in object_list %}
+<li>{{ user.userdata.dogname }}</li>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
+<h1 class="big mb-1">Dog ages:</h1>
+{% for user in object_list %}
+<li>{{ user.userdata.age }}</li>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
+<h1 class="big mb-1">User bio:</h1>
+{% for user in object_list %}
+<li>{{ user.profile.bio }}</li>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
+<h1 class="big mb-1">User Avatars:</h1>
+{% for user in object_list %}
+<img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/></li>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
