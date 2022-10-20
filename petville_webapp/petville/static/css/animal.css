@@ -4846,11 +4846,11 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   line-height:1
 }
 .pet{
-	height: 35px;
+	height: 25px;
 	width: 35px;
 	position: relative;
-	bottom: 9px;
-	left: 12px;
+	bottom: 3px;
+	left: 9px;
 }
 .ftco-navbar-light .navbar-brand span{
   color:#7cd6f1
