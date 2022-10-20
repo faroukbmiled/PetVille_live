@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
@@ -7,11 +8,18 @@ from PIL import Image
 
 class UserData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    age = models.PositiveIntegerField()
-    dogname = models.CharField(max_length=20)
+    age = models.PositiveIntegerField(default='1')
+    dogname = models.CharField(default='name', max_length=20)
+    
+    def __str__(self):
+        return self.user.username
+    
+    def save(self, *args, **kwargs):
+        super().save()
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    userdata = models.OneToOneField(UserData, on_delete=models.CASCADE, null=True)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
     bio = models.TextField()
 

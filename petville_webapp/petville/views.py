@@ -13,8 +13,9 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from django.shortcuts import render
 from .models import UserData
+from django.views.generic import TemplateView
 
-from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
+from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm, UpdateUserData
 
 
 def home(request):
@@ -94,19 +95,23 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_url = reverse_lazy('petville-home')
 
 
-@login_required
+
+
 def profile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        user_data = UpdateUserData(request.POST, request.FILES, instance=request.user.userdata)
 
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid() and user_data.is_valid():
             user_form.save()
             profile_form.save()
+            user_data.save()
             messages.success(request, 'Your profile is updated successfully')
             return redirect(to='petville-profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
+        user_data = UpdateUserData(instance=request.user.userdata)
 
-    return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'user_data': user_data})

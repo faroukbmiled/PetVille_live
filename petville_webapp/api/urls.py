@@ -1,5 +1,5 @@
 from django.urls import path
-from petville.views import home, profile, RegisterView
+from petville.views import home, RegisterView
 from .views import LastLoginSerializer, CurrentUserViewSet, ServerStatus
 from django.urls import include, path
 from rest_framework import routers

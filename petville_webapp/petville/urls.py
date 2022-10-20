@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, profile, RegisterView, CustomLoginView
+from .views import home, RegisterView, CustomLoginView, profile
 from petville import views
 from django.urls import include, path
 from petville import views
