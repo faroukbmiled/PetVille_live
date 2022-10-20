@@ -15,7 +15,7 @@ class UserDataSerializer(serializers.ModelSerializer):
 
 class CurrentUserSerializer(serializers.ModelSerializer):
     
-    agee = serializers.PrimaryKeyRelatedField(queryset = UserData.objects.all() ,source = 'UserData.age',)
+    agee = serializers.CharField(source = 'userdata.age', read_only=True)
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'agee')
