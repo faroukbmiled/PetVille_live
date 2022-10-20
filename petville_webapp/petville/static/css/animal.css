@@ -4840,11 +4840,13 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   }
 }
 .ftco-navbar-light .navbar-brand{
-  color:#7cd6f1;
-  font-weight:800;
+  color:#000;
+  font-weight:80;
   font-size:28px;
-  line-height:1
+  position: relative;
+  bottom: 35px;
 }
+
 .ftco-navbar-light .navbar-brand span{
   color:#7cd6f1
 }
@@ -5058,7 +5060,6 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   margin-bottom:20px;
   z-index:99
 }
-spa
 .hero-wrap .slider-text .breadcrumbs span{
   color:rgba(255,255,255,.5)
 }
