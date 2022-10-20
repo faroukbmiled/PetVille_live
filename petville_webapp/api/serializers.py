@@ -5,7 +5,6 @@ from petville.models import UserData
 from django.db import models
 from rest_framework import serializers
 from rest_framework import status
-from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 
 class UserDataSerializer(serializers.ModelSerializer):
