@@ -1,14 +1,25 @@
-from dataclasses import field
+from dataclasses import field, fields
+from pyexpat import model
 from django.contrib.auth.models import User, Group
+from petville.models import UserData
+from django.db import models
 from rest_framework import serializers
 from rest_framework import status
+from drf_writable_nested.serializers import WritableNestedModelSerializer
 
+
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserData
+        fields = ('age')
 
 class CurrentUserSerializer(serializers.ModelSerializer):
+    
+    agee = serializers.PrimaryKeyRelatedField(queryset = UserData.objects.all() ,source = 'UserData.age',)
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name')
-
+        fields = ('username', 'email', 'first_name', 'last_name', 'agee')
+        
 class LastLoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

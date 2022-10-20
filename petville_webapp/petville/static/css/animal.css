@@ -4846,12 +4846,23 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   line-height:1
 }
 .pet{
-	height: 35px;
-	width: 35px;
+  width: 38px;
+  height: 37x;
+  right: 10%;
 	position: relative;
-	bottom: 4px;
-	left: 9px;
 }
+.smallsz{
+  
+  font-weight: bold;
+  font-size: 2.0em;
+	position: absolute;
+
+}
+
+.smallsz:hover {
+  color: #000;
+}
+
 .ftco-navbar-light .navbar-brand span{
   color:#7cd6f1
 }

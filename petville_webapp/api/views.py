@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+from petville.models import UserData
 from rest_framework import status
 from .serializers import CurrentUserSerializer
 from .serializers import LastLoginSerializer
@@ -19,12 +20,12 @@ from rest_framework.permissions import IsAuthenticated
 import requests
 
 
-class CurrentUserViewSet(viewsets.ReadOnlyModelViewSet):
+class CurrentUserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = CurrentUserSerializer
 
-class LastLoginSerializer(viewsets.ReadOnlyModelViewSet):
+class LastLoginSerializer(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = LastLoginSerializer
