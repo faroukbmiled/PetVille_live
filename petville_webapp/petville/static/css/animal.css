@@ -4842,14 +4842,14 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
 .ftco-navbar-light .navbar-brand{
   color:#000;
   font-weight:800;
-  font-size:28px;
+  font-size:38px;
   line-height:1
 }
 .pet{
-	height: 25px;
+	height: 35px;
 	width: 35px;
 	position: relative;
-	bottom: 3px;
+	bottom: 4px;
 	left: 9px;
 }
 .ftco-navbar-light .navbar-brand span{
