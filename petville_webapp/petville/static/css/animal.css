@@ -5451,6 +5451,7 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   -ms-transition:all .3s ease;
   transition:all .3s ease
 }
+
 .staff .text{
   position:relative;
   background:#fff;
