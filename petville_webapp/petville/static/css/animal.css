@@ -4966,7 +4966,7 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   color:#000
 }
 .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu .dropdown-item:hover,.ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu .dropdown-item:focus{
-  background:#528168;
+  background:#7cd6f1;
   color:#fff
 }
 @media (max-width:991.98px){
@@ -5736,7 +5736,7 @@ textarea.form-control{
   background:-o-linear-gradient(45deg,#207dff 0%,#7cd6f1 100%);
   background:-ms-linear-gradient(45deg,#207dff 0%, #7cd6f1 100%);
   background:linear-gradient(45deg,#207dff 0%, #7cd6f1 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#00bd55', GradientType=1 )
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cd6f1', endColorstr='#7cd6f1', GradientType=1 )
 }
 @media (min-width:992px){
   .ftco-appointment .overlay{
@@ -5914,9 +5914,9 @@ textarea.form-control{
 }
 @keyframes pulse {
    0% {
-       -moz-box-shadow: 0 0 0 0 rgba(0, 189, 86, 0.4);
-       -webkit-box-shadow: 0 0 0 0 rgba(0, 189, 86, 0.4);
-       box-shadow: 0 0 0 0 rgba(0, 189, 86, 0.4);
+       -moz-box-shadow: 0 0 0 0 #7cd6f1;
+       -webkit-box-shadow: 0 0 0 0 #7cd6f1;
+       box-shadow: 0 0 0 0 #7cd6f1;
   }
    70% {
        -moz-box-shadow: 0 0 0 30px rgba(0, 189, 86, 0);
@@ -6045,10 +6045,10 @@ textarea.form-control{
   background:#fff;
   padding:0 20px;
   border-radius:5px;
-  border:1px solid rgba(0,0,0,.02);
-  -webkit-box-shadow:0 30px 33px -41px rgba(0,0,0,.24);
-  -moz-box-shadow:0 30px 33px -41px rgba(0,0,0,.24);
-  box-shadow:0 30px 33px -41px rgba(0,0,0,.24)
+  border:1px solid #7cd6f1;
+  -webkit-box-shadow:0 30px 33px -41px #7cd6f1;
+  -moz-box-shadow:0 30px 33px -41px #7cd6f1;
+  box-shadow:0 30px 33px -41px #7cd6f1;
 }
 .testimony-wrap .icon{
   position:absolute;
@@ -6075,7 +6075,7 @@ textarea.form-control{
   font-weight:500;
   font-size:20px;
   margin-bottom:0;
-  color:#000
+  color:#000;
 }
 .testimony-wrap .position{
   font-size:14px;
