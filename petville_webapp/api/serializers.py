@@ -1,23 +1,36 @@
-from dataclasses import field, fields
-from pyexpat import model
 from django.contrib.auth.models import User, Group
-from petville.models import UserData
+from petville.models import UserData, Profile
 from django.db import models
 from rest_framework import serializers
 from rest_framework import status
+from drf_writable_nested import WritableNestedModelSerializer
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField()
+    bio = serializers.CharField(required=False)
+    avatar = serializers.ImageField(required=False)
+    class Meta:
+        model = Profile
+        fields = ('id', 'bio', 'avatar',)
 
 
 class UserDataSerializer(serializers.ModelSerializer):
+    dogname = serializers.CharField(required=False)
+    age = serializers.IntegerField(required=False)
+    id = serializers.IntegerField()
     class Meta:
         model = UserData
-        fields = ('age')
+        fields = ('id', 'dogname', 'age',)
 
-class CurrentUserSerializer(serializers.ModelSerializer):
+class CurrentUserSerializer(WritableNestedModelSerializer):
     
-    agee = serializers.CharField(source = 'userdata.age', read_only=True)
+    profile = ProfileSerializer()
+    userdata = UserDataSerializer()
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'agee')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'userdata', 'profile',)
         
 class LastLoginSerializer(serializers.ModelSerializer):
     class Meta:

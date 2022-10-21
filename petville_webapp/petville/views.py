@@ -54,6 +54,8 @@ class RegisterView(View):
                 user = User.objects.get(username=username)
                 user_data = UserData.objects.create(user=user, age=age, dogname=dogname)
                 user_data.save()
+                profile = Profile.objects.create(user=user)
+                profile.save()
                 return redirect('login')
         else:
             form = RegisterForm()

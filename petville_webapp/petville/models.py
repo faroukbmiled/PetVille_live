@@ -1,4 +1,5 @@
-from email.policy import default
+from urllib import request
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
