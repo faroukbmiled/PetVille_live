@@ -1,3 +1,4 @@
+from enum import auto
 from django.contrib.auth.models import User, Group
 from petville.models import UserData, Profile
 from django.db import models
@@ -7,9 +8,9 @@ from drf_writable_nested import WritableNestedModelSerializer
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField()
     bio = serializers.CharField(required=False)
     avatar = serializers.ImageField(required=False)
+    id = serializers.IntegerField(required=True)
     class Meta:
         model = Profile
         fields = ('id', 'bio', 'avatar',)
@@ -18,7 +19,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class UserDataSerializer(serializers.ModelSerializer):
     dogname = serializers.CharField(required=False)
     age = serializers.IntegerField(required=False)
-    id = serializers.IntegerField()
+    id = serializers.IntegerField(required=True)
     class Meta:
         model = UserData
         fields = ('id', 'dogname', 'age',)
