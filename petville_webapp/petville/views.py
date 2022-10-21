@@ -56,6 +56,7 @@ class RegisterView(View):
                 user_data.save()
                 profile = Profile.objects.create(user=user)
                 profile.save()
+                messages.success(request, 'Your account has been created successfully')
                 return redirect('login')
         else:
             form = RegisterForm()
