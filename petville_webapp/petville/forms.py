@@ -52,13 +52,12 @@ class RegisterForm(UserCreationForm):
                                                                   'class': 'form-control',
                                                                   }))
     city = forms.CharField()
-    location = PlainLocationField(based_fields=['city'],
+    location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
                                   initial='-22.2876834,-49.1607606')
 
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname', 'city', 'location',]
-        widgets = {'location': forms.HiddenInput()}
 
 
 class LoginForm(AuthenticationForm):
@@ -109,7 +108,7 @@ class UpdateUserData(forms.ModelForm):
     dogname = forms.CharField(required=True,
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
     city = forms.CharField()
-    location = PlainLocationField(based_fields=['city'],
+    location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
                                   initial='-22.2876834,-49.1607606')
     
     
