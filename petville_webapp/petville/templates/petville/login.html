@@ -2,102 +2,148 @@
 {% load static %}
 {% block title %} {% endblock title%}
 {% block content %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-  	<title>PetVille Sign in</title>
-	
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="{% static '/css/style.css' %}">
-	
-	</head>
-	
-	<body class="img js-fullheight" style="background-image: url(/static/images/bur.jpg);">
-		
-	<section class="ftco-section">
-		<div class="container">
-			
-			<form method="POST">
-				{% csrf_token %}
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
-				</div>
+    <link rel="stylesheet" href="{% static '/css/new.css' %}" />
+    <title>Sign in & Sign up Form</title>
+  </head>
+  <body 
+  >
+    <div class="container" class="img js-fullheight" style="background-image: url(/static/images/bur.jpg);">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form" >
+			<div class="col-md-6 text-center mb-5">
+				<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
 			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Welcome back to PetVille!</h3>
-				  {% if messages %}
-				  <div class="alert alert-dismissible" role="alert">
-					{% for message in messages %}
-					  <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            <h2 class="title">Sign in</h2>
+			{% if messages %}
+			<div class="alert alert-dismissible" role="alert">
+			  {% for message in messages %}
+				<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+			  {% endfor %}
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		  {% endif %}
+			{% if form.errors %}
+			<div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
+				<div id="form_errors">
+					{% for key, value in form.errors.items %}
+						<strong>error, please check username/password </strong>
 					{% endfor %}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					  <span aria-hidden="true">&times;</span>
-					</button>
-				  </div>
-				{% endif %}
-				  {% if form.errors %}
-				  <div class="alert alert-danger alert-dismissible" style="white-space: nowrap;" role="alert">
-					  <div id="form_errors">
-						  {% for key, value in form.errors.items %}
-							  <strong>error, please check username/password </strong>
-						  {% endfor %}
-					  </div>
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-					  </button>
-				  </div>
-				  {% endif %}
-		      	<form action="#" class="signin-form">
-		      		<div class="form-group">
-						{{ form.username }}
-		      		</div>
-	            <div class="form-group">
-					
-					{{ form.password }}
-	            </div>
-	            <div class="form-group">
-	            	<button name="login" class="form-control btn btn-primary submit px-3" id="login" >Sign in</button>
-	            </div>
-	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-						
-		            	<label class="checkbox-wrap checkbox-primary" style="color: #7EC8E3">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									  {{ form.remember_me }}
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="{% url 'password_reset' %}" style="color: #7EC8E3">Forgot Password?</a>
-								</div>
-	            </div>
-				<hr width="90%" style=height:0.3px; color="#ADD8E6">
-				<div class="small">
-					<a href="{% url 'petville-register' %}" style="color: #7EC8E3">Don't have an account?<span style="color: #ff0000"> Sign up</span></a>
-					
 				</div>
-	          </form>
-		      </div>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			{% endif %}
+			<form action="#" class="signin-form">
+				<div class="form-group">
+				  {{ form.username }}
 				</div>
+		  <div class="form-group">
+			  
+			  {{ form.password }}
+		  </div>
+		  <div class="form-group">
+			<button name="login" class="form-control btn btn-primary submit px-3" id="login" >Sign in</button>
+		</div>
+		<div class="form-group d-md-flex">
+			<div class="w-50">
+				
+				<label class="checkbox-wrap checkbox-primary" style="color: #7EC8E3">Remember Me
+							  <input type="checkbox" checked>
+							  <span class="checkmark"></span>
+							  {{ form.remember_me }}
+							</label>
+						</div>
+						<div class="w-50 text-md-right">
+							<a href="{% url 'password_reset' %}" style="color: #7EC8E3">Forgot Password?</a>
+						</div>
 			</div>
 		</div>
-	</section>
+          </form>
+          <form action="#" class="sign-up-form">	
+			  	<div class="col-md-6 text-center mb-5">
+					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
+				</div>
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" />
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
+            <p class="social-text">Or Sign up with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
 
-	<script src="{% static '/js/jquery.min.js' %}"></script>
-  <script src="{% static '/js/popper.js' %}"></script>
-  <script src="{% static '/js/bootstrap.min.js' %}"></script>
-  <script src="{% static '/js/main.js' %}"></script>
-  <script src="{% static '/js/bootstrap-show-password.min.js' %}"></script>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+              ex ratione. Aliquid!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Sign up
+            </button>
+          </div>
+          <img src="img/log.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              laboriosam ad deleniti.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign in
+            </button>
+          </div>
+          <img src="img/register.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
 
-	</body>
+    <script src="{% static '/js/app.js' %}"></script>
+  </body>
 </html>
 {% endblock content %}
