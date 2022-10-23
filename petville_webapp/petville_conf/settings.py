@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'rest_framework.authtoken',
+    'location_field.apps.DefaultConfig',
+    'osm_field',
 ]
 
 REST_FRAMEWORK = {
@@ -55,6 +57,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+LOCATION_FIELD = {
+    'provider.openstreetmap.max_zoom': 18,
+    'map.provider': 'openstreetmap',
+    'search.provider': 'nominatim',
 }
 
 MIDDLEWARE = [

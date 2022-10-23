@@ -1,8 +1,9 @@
+from dataclasses import field
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
 from .models import Profile, UserData
+from location_field.forms.plain import PlainLocationField
 
 
 class RegisterForm(UserCreationForm):
@@ -50,10 +51,14 @@ class RegisterForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Dog Name',
                                                                   'class': 'form-control',
                                                                   }))
+    city = forms.CharField()
+    location = PlainLocationField(based_fields=['city'],
+                                  initial='-22.2876834,-49.1607606')
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname', 'city', 'location',]
+        widgets = {'location': forms.HiddenInput()}
 
 
 class LoginForm(AuthenticationForm):
@@ -103,7 +108,13 @@ class UpdateUserData(forms.ModelForm):
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     dogname = forms.CharField(required=True,
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
+    city = forms.CharField()
+    location = PlainLocationField(based_fields=['city'],
+                                  initial='-22.2876834,-49.1607606')
+    
+    
 
     class Meta:
         model = UserData
-        fields = ['age', 'dogname']
+        fields = ['age', 'dogname','location', 'city',]
+        

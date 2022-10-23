@@ -106,7 +106,6 @@ class UserListView(ListView):
 
 
 
-
 def profile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
@@ -125,3 +124,20 @@ def profile(request):
         user_data = UpdateUserData(instance=request.user.userdata)
 
     return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'user_data': user_data})
+
+def location(self, request, *args, **kwargs):
+        if request.method == "POST":
+            test = UpdateUserData(request.POST)
+            if form.is_valid():
+                form.save()
+                latitude = form.cleaned_data.get('location')
+                coor = form.cleaned_data.get('city')
+                user = User.objects.get(username=user)
+                user_data = UserData.objects.create(user=user, coor=coor, latitude=latitude)
+                user_data.save()
+                latt = UserData.objects.create(user=user)
+                latt.save()
+                return redirect('login')
+        else:
+            form = RegisterForm()
+        return render(request, 'petville/profile.html', {'test': test})  
