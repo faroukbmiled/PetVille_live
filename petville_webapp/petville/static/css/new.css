@@ -10,8 +10,167 @@ body,
 input {
   font-family: "Poppins", sans-serif;
 }
+.heading-section {
+	position: relative;
+	top: 15px;
+	right: 12px;
+	width: 80px; }
+	.form-group {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		margin-bottom: 0; }
 
-.container {
+.form-group {
+	margin-bottom: 1rem; }
+	
+.form-group {
+position: relative; }
+.alert {
+	position: relative;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem; }	 
+
+.alert-dismissible {
+  padding-right: 4rem; }
+  .alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit; }
+	.alert-danger {
+		color: #721c24;
+		background-color: #f8d7da;
+		border-color: #f5c6cb; }
+		.alert-danger hr {
+		  border-top-color: #f1b0b7; }
+		.alert-danger .alert-link {
+		  color: #491217; }
+		  .form-control {
+			background: transparent;
+			border: none;
+			height: 50px;
+			color: white !important;
+			border: 1px solid transparent;
+			background: rgba(255, 255, 255, 0.08);
+			border-radius: 40px;
+			padding-left: 20px;
+			padding-right: 20px;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s; }
+.btn {
+				display: inline-block;
+				font-weight: 400;
+				color: #212529;
+				text-align: center;
+				vertical-align: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				background-color: transparent;
+				border: 1px solid transparent;
+				padding: 0.375rem 0.75rem;
+				font-size: 1rem;
+				line-height: 1.5;
+				border-radius: 0.25rem;
+				-webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+				transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+				-o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+				transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+				transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+
+				.btn-primary {
+					color: #fff;
+					background-color: #007bff;
+					border-color: #007bff; }
+					.btn-primary:hover {
+					  color: #fff;
+					  background-color: #0069d9;
+					  border-color: #0062cc; }
+					.btn-primary:focus, .btn-primary.focus {
+					  -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+					  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+					.btn-primary.disabled, .btn-primary:disabled {
+					  color: #fff;
+					  background-color: #007bff;
+					  border-color: #007bff; }
+					.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+					.show > .btn-primary.dropdown-toggle {
+					  color: #fff;
+					  background-color: #0062cc;
+					  border-color: #005cbf; }
+					  .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+					  .show > .btn-primary.dropdown-toggle:focus {
+						-webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+						box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+						.checkbox-wrap {
+							display: block;
+							position: relative;
+							padding-left: 30px;
+							left: 5px;
+							margin-bottom: 12px;
+							cursor: pointer;
+							font-size: 16px;
+							font-weight: 500;
+							-webkit-user-select: none;
+							-moz-user-select: none;
+							-ms-user-select: none;
+							user-select: none; }
+						  
+						  /* Hide the browser's default checkbox */
+						  .checkbox-wrap input {
+							position: absolute;
+							opacity: 0;
+							cursor: pointer;
+							height: 0;
+							width: 0; }
+	  /* Show the checkmark when checked */
+.checkbox-wrap input:checked ~ .checkmark:after {
+	display: block;
+	content: "\f14a";
+	font-family: "FontAwesome";
+	color: rgba(0, 0, 0, 0.2); }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-primary {
+	color: #ADD8E6; }
+	.checkbox-primary input:checked ~ .checkmark:after {
+	  color: #ADD8E6; }
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0; }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+	content: "\f0c8";
+	font-family: "FontAwesome";
+	position: absolute;
+	color: rgba(255, 255, 255, 0.1);
+	font-size: 20px;
+	margin-top: -4px;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s; }
+	.w-50 {
+		width: 50% !important; }
+				.container {
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -19,6 +178,23 @@ input {
   overflow: hidden;
 }
 
+a {
+	color: #007bff;
+	text-decoration: none;
+	background-color: transparent; }
+	a:hover {
+	  color: #0056b3;
+	  text-decoration: underline; }
+  
+  a:not([href]):not([tabindex]) {
+	color: inherit;
+	text-decoration: none; }
+	a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+	  color: inherit;
+	  text-decoration: none; }
+	a:not([href]):not([tabindex]):focus {
+	  outline: 0; }
+  
 .forms-container {
   position: absolute;
   width: 100%;
@@ -128,13 +304,13 @@ form.sign-in-form {
 }
 
 .social-icon:hover {
-  color: #4481eb;
-  border-color: #4481eb;
+  color: #7cd6f1;
+  border-color: #7cd6f1;
 }
 
 .btn {
   width: 150px;
-  background-color: #5995fd;
+  background-color: #7cd6f1;
   border: none;
   outline: none;
   height: 49px;
@@ -148,7 +324,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background-color: #7cd6f1;
 }
 .panels-container {
   position: absolute;
@@ -168,7 +344,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  background-image: linear-gradient(-45deg, #7cd6f1 0%, #04befe 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
