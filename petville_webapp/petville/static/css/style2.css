@@ -25,7 +25,11 @@
         -o-transition: 0.3s;
         transition: 0.3s; ;}
 
-.shitty {
-    position: relative;
-    right: 55px;
+.mapclass {
+    top: 5000%;
+    overflow: hidden;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    border-radius: 50px;
 }
