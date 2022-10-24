@@ -23,36 +23,35 @@
     <div class="container" class="img js-fullheight" style="background-image: url(/static/images/bur.jpg);">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form" >
+          <form action="#" class="sign-in-form">
 			<div class="col-md-6 text-center mb-5">
 				<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
 			</div>
-            <h2 class="title">Sign in</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
+		<h3 class="title">Welcome back to PetVille!</h3>
+			<div class="form-group">
+				{{ form.username }}
+			  </div>
+		<div class="form-group">
+			
+			{{ form.password }}
+		</div>
+            
             <input type="submit" value="Login" class="btn solid" />
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+			<div class="form-group d-md-flex">
+				<div class="w-50">
+					
+					<label class="checkbox-wrap checkbox-primary" style="color: #7EC8E3">Remember Me
+								  <input type="checkbox" checked>
+								  <span class="checkmark"></span>
+								  {{ form.remember_me }}
+								</label>
+							</div>
+							<div class="w-50 text-md-right">
+								<a href="{% url 'password_reset' %}" style="color: #7EC8E3">Forgot Password?</a>
+							</div>
+			</div>
           </form>
+		</form>
           <form action="#" class="sign-up-form">	
 			  	<div class="col-md-6 text-center mb-5">
 					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
@@ -102,7 +101,6 @@
               Sign up
             </button>
           </div>
-          <img src="img/log.svg" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
