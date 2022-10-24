@@ -51,9 +51,11 @@ class RegisterForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Dog Name',
                                                                   'class': 'form-control',
                                                                   }))
-    city = forms.CharField()
+    city = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
     location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
-                                  initial='-22.2876834,-49.1607606')
+                                  initial='36.80105674280464, 10.181972264198441')
 
     class Meta:
         model = User
@@ -107,9 +109,11 @@ class UpdateUserData(forms.ModelForm):
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     dogname = forms.CharField(required=True,
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
-    city = forms.CharField()
+    city = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
-                                  initial='-22.2876834,-49.1607606')
+                                  initial='36.80105674280464, 10.181972264198441')
     
     
 

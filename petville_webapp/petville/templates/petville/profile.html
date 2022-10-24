@@ -2,7 +2,9 @@
 {% load static %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
+<link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
 <script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<link rel="stylesheet" href="{% static '/css/showhide.css' %}" />
     <div class="row my-3 p-3">
         <img class="img-fluid img-thumbnail" src="{{ user.profile.avatar.url }} " style='height: 30%; width: 20%;'/>
     </div>
@@ -37,9 +39,13 @@
                         <label class="big mb-1">Your dog's name:</label>
                             {{ user.userdata.dogname }}
                             {{ user_data.dogname }}
+                        <div id="menu">
                             {{ user_data.city }}
-                            <div class="visible">  {{ user_data.location }}  </div>
-                    </div>
+                            <div id="h_div" class="modal-bg">
+                            <div class="">  {{ user_data.location }}  </div> </div>
+                        </div>
+                     </div>
+                     
                     <div class="form-group">
                         <a href="{% url 'password_change' %}">Change Password</a>
                         <hr>
@@ -52,6 +58,7 @@
             <br><br>
             <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
             <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+            <script src="{% static '/js/test.js' %}"></script>
         </form>
     </div>
 {% endblock content %}

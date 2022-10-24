@@ -1,0 +1,21 @@
+.hide {
+    display: none;
+  }
+  
+  .myDIV:hover + .hide {
+    display: block;
+    color: red;
+  }
+
+  #map-sabana {
+    width:500px;
+    height:380px;
+  }
+  #map-estadio {
+    width:500px;
+    height:380px;
+  }
+  .flyout{
+    display: none;
+    }
+    

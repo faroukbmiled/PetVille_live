@@ -1,10 +1,10 @@
+{% extends "petville/base.html" %}
 {% load static %}
 {% block title %} {% endblock title%}
 {% block content %}
 <!doctype html>
 <html lang="en">
   <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<title>Sign up!</title>
 	
     <meta charset="utf-8">
@@ -15,11 +15,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="{% static '/css/style.css' %}">
-	
+	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+	<script src="{% static '/js/test.js' %}"></script>
 	</head>
-	
+	{{ form.media }}
 	<body class="fill" style="background-image: url(/static/images/bur.jpg);">
 	<section class="ftco-section">
+		
 		<div class="container js-fullheight">
 			
 			<form method="POST">
@@ -35,8 +37,6 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 centrelatrabhek">Sign up to PetVille!</h3> 
-		
-					{{form.media}}
 				  {% if form.errors %}
 				  <div class="alert alert-danger alert-dismissible" role="alert">
 					  <div id="form_errors">
@@ -52,33 +52,40 @@
 		      	<form action="#" class="signin-form">
 					<div class="row">
 						<div class="col-md-6">
-						  <div class="form-outline">
-							{{ form.city }}
-							{{ form.location }}
+						  <div class="form-group">
 							{{ form.first_name }}
 						  </div>
 						</div>
 						<div class="col-md-6">
-						  <div class="form-outline">
+						  <div class="form-group">
 							{{ form.last_name }}
 						  </div>
 						</div>
-					  </div>
-					<div class="form-group"></div>
-						{{ form.age }}
-					<div class="form-group"></div>
-						{{ form.dogname }}
-					<div class="form-group"></div>
-						{{ form.username }}
-					<div class="form-group"></div>
-						{{ form.email }}
+					  </div> 
+					<div class="form-group">
+						{{ form.age }} </div>
+					<div class="form-group">
+						{{ form.dogname }} </div>
+					<div class="form-group">
+						{{ form.username }} </div>
+					<div class="form-group">
+						{{ form.email }} </div>
+
+
+					<div id="menu" class="form-group">
+
+						{{ form.city }}
+
+					<div id="h_div" class="form-group">
+
+					<div> {{ form.location }} </div> </div> </div>
+
 					<div class="form-group"></div>
 						{{ form.password1 }}
 					<div class="form-group"></div>
 						{{ form.errors.password }}
 					<div class="form-group"></div>
 						{{ form.password2 }}
-					
 		      		</div>
 	            <div class="form-group">
 	            </div>
@@ -101,7 +108,6 @@
 		</div>
 	</section>
 
-	<script src="{% static '/js/jquery.min.js' %}"></script>
   <script src="{% static '/js/popper.js' %}"></script>
   <script src="{% static '/js/bootstrap.min.js' %}"></script>
   <script src="{% static '/js/main.js' %}"></script>

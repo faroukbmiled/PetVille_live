@@ -24,6 +24,8 @@ urlpatterns = [
 
     path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='petville/login.html',
                                            authentication_form=LoginForm), name='login'),
+    path('test/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='petville/loginbb.html',
+                                           authentication_form=LoginForm), name='test'),
 
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
