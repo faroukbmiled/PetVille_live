@@ -8,4 +8,5 @@ social-auth-app-django==5.0.0
 drf-writable-nested==0.7.0
 django-osm-field==0.5.0
 django-location-field==2.1.0
+django-localflavor
 

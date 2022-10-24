@@ -1,9 +1,11 @@
+from random import choices
 from urllib import request
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 from location_field.models.plain import PlainLocationField
+from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES  
 
 
 # Extending User Model Using a One-To-One Link
@@ -14,6 +16,7 @@ class UserData(models.Model):
     dogname = models.CharField(default='name', max_length=20)
     city = models.CharField(max_length=255, null=True)
     location = PlainLocationField(based_fields=['city'], zoom=7, null=True)
+    state = models.CharField(max_length=24, choices=GOVERNORATE_CHOICES, blank=True, null=True)  
     
     def __str__(self):
         return self.user.username

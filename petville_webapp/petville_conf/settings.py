@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'location_field.apps.DefaultConfig',
     'osm_field',
+    'localflavor',
 ]
 
 REST_FRAMEWORK = {

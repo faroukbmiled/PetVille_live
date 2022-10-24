@@ -1,9 +1,12 @@
+from asyncio.windows_events import NULL
 from dataclasses import field
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Profile, UserData
 from location_field.forms.plain import PlainLocationField
+from localflavor.tn.forms import TNGovernorateSelect
+from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
 
 
 class RegisterForm(UserCreationForm):
@@ -54,12 +57,15 @@ class RegisterForm(UserCreationForm):
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
-    location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
+    state = forms.ChoiceField(choices=GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-control'}))
+    
+    location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
+    
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname', 'city', 'location',]
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname', 'city', 'state', 'location',]
 
 
 class LoginForm(AuthenticationForm):
@@ -114,10 +120,10 @@ class UpdateUserData(forms.ModelForm):
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city'],
                                   initial='36.80105674280464, 10.181972264198441')
+    state = TNGovernorateSelect(attrs={'class': 'form-control'})
     
     
-
     class Meta:
         model = UserData
-        fields = ['age', 'dogname','location', 'city',]
+        fields = ['age', 'dogname','location', 'city', 'state']
         
