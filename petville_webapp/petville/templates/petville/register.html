@@ -1,4 +1,3 @@
-{% extends "petville/base.html" %}
 {% load static %}
 {% block title %} {% endblock title%}
 {% block content %}
@@ -17,6 +16,7 @@
 	<link rel="stylesheet" href="{% static '/css/style.css' %}">
 	<link rel="stylesheet" href="{% static '/css/style2.css' %}">
 	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'></script>
 	<script src="{% static '/js/test.js' %}"></script>
 	</head>
 	{{ form.media }}
@@ -79,7 +79,7 @@
 
 						{{ form.city }}
 
-					<div id="h_div" class="form-group">
+					<div id="h_div" class="shitty">
 
 					<div class="form-group"> {{ form.location }} </div> </div> </div>
 

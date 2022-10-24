@@ -24,3 +24,8 @@
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; ;}
+
+.shitty {
+    position: relative;
+    right: 55px;
+}
