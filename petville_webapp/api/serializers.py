@@ -10,7 +10,7 @@ from drf_writable_nested import WritableNestedModelSerializer
 class ProfileSerializer(serializers.ModelSerializer):
     bio = serializers.CharField(required=False)
     avatar = serializers.ImageField(required=False)
-    id = serializers.IntegerField(required=True)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Profile
         fields = ('id', 'bio', 'avatar',)
@@ -19,7 +19,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class UserDataSerializer(serializers.ModelSerializer):
     dogname = serializers.CharField(required=False)
     age = serializers.IntegerField(required=False)
-    id = serializers.IntegerField(required=True)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = UserData
         fields = ('id', 'dogname', 'age',)

@@ -69,7 +69,7 @@
 			<div class="col-md-6 col-lg-3 ftco-animate">
 			  <div class="staff">
 				<div class="img-wrap d-flex align-items-stretch">
-				  <div class="img align-self-stretch" style="background-image: url({{ user.profile.avatar.url }});"></div>
+				  <img class="img align-self-stretch" src= {{ user.profile.avatar.url }}></img>
 				</div>
 				<div class="text pt-3 px-3 pb-4 text-center">
 				  <h3>{{ user }}</h3>
@@ -104,7 +104,6 @@
 			</div>
 			{% endfor %}
 	  </section>
-    <div id="map" class="map"></div>
     <footer class="footer">
       <div class="container">
         <div class="row">
