@@ -116,9 +116,9 @@ class UpdateUserData(forms.ModelForm):
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
-    location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city'],
+    location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
-    state = TNGovernorateSelect(attrs={'class': 'form-control'})
+    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
     
     
     class Meta:
