@@ -26,10 +26,10 @@
         transition: 0.3s; ;}
 
 .mapclass {
-    top: 5000%;
     overflow: hidden;
     display:flex;
     align-items:center;
     justify-content: center;
     border-radius: 50px;
+    top: -20px;
 }
