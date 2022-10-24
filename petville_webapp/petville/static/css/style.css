@@ -1614,6 +1614,19 @@ pre {
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+  .form-control:hover {
+    background: transparent;
+    border: none;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.774) !important ;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; ;}
   @media (prefers-reduced-motion: reduce) {
     .form-control {
       -webkit-transition: none;

@@ -1,5 +1,3 @@
-from asyncio.windows_events import NULL
-from dataclasses import field
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -8,7 +6,7 @@ from location_field.forms.plain import PlainLocationField
 from localflavor.tn.forms import TNGovernorateSelect
 from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
 
-
+blank_choice = (('', '-- Select state --'),)
 class RegisterForm(UserCreationForm):
     # fields we want to include and customize in our form
     first_name = forms.CharField(max_length=100,
@@ -57,9 +55,9 @@ class RegisterForm(UserCreationForm):
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
-    state = forms.ChoiceField(choices=GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-control'}))
+    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
     
-    location = PlainLocationField(attrs={'class': 'invisible'}, based_fields=['city', 'state'],
+    location = PlainLocationField(attrs={'style': 'visibility:hidden;position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
     
 
