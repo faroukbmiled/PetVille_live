@@ -15,8 +15,8 @@ class UserData(models.Model):
     age = models.PositiveIntegerField(default='1')
     dogname = models.CharField(default='name', max_length=20)
     city = models.CharField(max_length=255, null=True)
-    location = PlainLocationField(based_fields=['city'], zoom=7, null=True)
-    state = models.CharField(max_length=24, choices=GOVERNORATE_CHOICES, blank=True, null=True)  
+    state = models.CharField(max_length=24, choices=GOVERNORATE_CHOICES, blank=True, null=True) 
+    location = PlainLocationField(based_fields=['city','state'], zoom=7, null=True)
     
     def __str__(self):
         return self.user.username

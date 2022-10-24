@@ -39,13 +39,14 @@
                         <label class="big mb-1">Your dog's name:</label>
                             {{ user.userdata.dogname }}
                             {{ user_data.dogname }}
+                            {{ user_data.state }}
                         <div id="menu">
                             {{ user_data.city }}
                             <div id="h_div" class="modal-bg">
                             <div class="">  {{ user_data.location }}  </div> </div>
                         </div>
                      </div>
-                     {{ user_data.state }}
+                    
                      
                     <div class="form-group">
                         <a href="{% url 'password_change' %}">Change Password</a>
