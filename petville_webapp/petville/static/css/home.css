@@ -1,0 +1,11 @@
+.d-flex.align-items-center {
+    display: flex;
+    gap: 20px;
+}
+
+/* .container {
+    background-image: url(/static/images/bur.jpg);
+    background-repeat: no-repeat;
+    height: calc(100vw + 50px);
+    background-size: cover;
+} */

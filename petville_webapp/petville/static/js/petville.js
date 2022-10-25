@@ -4,8 +4,8 @@ $(document).ready(function () {
 $(document).ready(function(){
 $('#section2').hide();
 $(function() {setTimeout(function() {$("#pass2").hide('blind', {}, 0)}, 0);}); 
-$(function() {setTimeout(function() {$("#menu").hide('blind', {}, 30)}, 30);}); 
-$(function() {setTimeout(function() {$("#h_div").hide('blind', {}, 35)}, 35);}); 
+$(function() {setTimeout(function() {$("#menu").hide('blind', {}, 50)}, 50);});
+$(function() {setTimeout(function() {$("#h_div").hide('blind', {}, 50)}, 50);}); 
 $('#menu').hover(function(){$('#h_div').fadeIn("slow");}, function(){$('#h_div').fadeOut("fast");});
 $('#password').keypress(function() {
     $('#pass2').fadeIn("slow");

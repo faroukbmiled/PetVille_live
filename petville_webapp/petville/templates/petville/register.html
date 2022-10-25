@@ -16,11 +16,36 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
 	<script src="{% static '/js/petville.js' %}"></script>
 </head> {{ form.media }}
-
-<body class="fill" style="background-image: url(/static/images/bur.jpg);">
+<style>
+.alert.alert-danger.alert-dismissible {
+    min-width: 496px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 26px 0 !important;
+    margin-left: -81px !important;
+}
+	.alert.alert-danger.alert-dismissible span {
+    position: absolute;
+    top: 0;}
+	.errorlist li {
+    list-style: none;
+    margin-left: -46px;
+}
+body.fill {
+	overflow-x: hidden !important;
+}
+/* @media (max-width: 385px) {
+	body.fill {
+		height: 200vh !important;
+	} */
+</style>
+<body class="fill" style="background-image: url(/static/images/bur.jpg);background-repeat: no-repeat;
+background-size: cover;
+height: 138vh;">
 	<form method="POST"> {% csrf_token %}
 		<section id="section1" class="ftco-section">
-			<div class="container js-fullheight">
+			<div class="container ">
 				<div class="row justify-content-center">
 					<div class="col-md-6 text-center mb-5">
 						<a href="/"><img class="heading-section" src="/static/images/logop.png"></img>
@@ -29,7 +54,7 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-md-6 col-lg-4">
-						<div class="login-wrap p-0">
+						<div class="login-wrap p-0 form62">
 							<h3 class="mb-4 centrelatrabhek">Sign up to PetVille!</h3> {% if form.errors %}
 							<div class="alert alert-danger alert-dismissible" role="alert">
 								<div id="form_errors"> {% for key, value in form.errors.items %} <strong> {{ value }} </strong> {% endfor %} </div>
