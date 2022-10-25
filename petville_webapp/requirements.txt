@@ -8,9 +8,8 @@ social-auth-app-django==5.0.0
 drf-writable-nested==0.7.0
 django-osm-field==0.5.0
 django-location-field==2.1.0
-django-localflavor
-django-phonenumber-field[phonenumberslite]
-phonenumbers
-django-phonenumber-field
-djmoney
+django-localflavor==3.1
+phonenumbers==8.12.57
+django-phonenumber-field==7.0.0
+django-money==3.0.0
 
