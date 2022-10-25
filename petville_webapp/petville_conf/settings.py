@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'location_field.apps.DefaultConfig',
     'osm_field',
     'localflavor',
+    "phonenumber_field",
+    'djmoney',
 ]
 
 REST_FRAMEWORK = {

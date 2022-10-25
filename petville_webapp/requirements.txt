@@ -9,4 +9,8 @@ drf-writable-nested==0.7.0
 django-osm-field==0.5.0
 django-location-field==2.1.0
 django-localflavor
+django-phonenumber-field[phonenumberslite]
+phonenumbers
+django-phonenumber-field
+djmoney
 

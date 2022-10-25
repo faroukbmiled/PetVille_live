@@ -5,6 +5,14 @@ from .models import Profile, UserData
 from location_field.forms.plain import PlainLocationField
 from localflavor.tn.forms import TNGovernorateSelect
 from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import RegionalPhoneNumberWidget
+from djmoney.forms.fields import MoneyField
+
+PER_CHOICES = (
+    ("TND/day", "TND/day"),
+    ("TND/hour", "TND/hour"),
+)
 
 blank_choice = (('', '-- Select state --'),)
 class RegisterForm(UserCreationForm):
@@ -42,28 +50,35 @@ class RegisterForm(UserCreationForm):
                                                                   'data-toggle': 'password',
                                                                   'id': 'password',
                                                                   }))
-    age = forms.CharField(max_length=50,
-                                required=True,
-                                widget=forms.TextInput(attrs={'placeholder': "Dog's age",
-                                                                  'class': 'form-control',
-                                                                  }))
-    dogname = forms.CharField(max_length=50,
-                                required=True,
-                                widget=forms.TextInput(attrs={'placeholder': 'Dog Name',
-                                                                  'class': 'form-control',
-                                                                  }))
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
-    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
+    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True,
+                              widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
+    
+    per_what = forms.ChoiceField(choices=PER_CHOICES, required=True,
+                              widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
+    
+    city = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
     
     location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
     
+    cost = forms.DecimalField(max_digits=4, decimal_places=2, required=True,
+                              widget=forms.TextInput(attrs={'placeholder': "Starting rate",'class': 'form-control',
+                                                                  }))
+    
+    phone_number = PhoneNumberField(region="TN", min_length=8, max_length=12, 
+                              widget=RegionalPhoneNumberWidget(attrs={'placeholder': "Phone Number: +216...",'class': 'form-control',
+                                                                  }))
+    
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'age', 'dogname', 'city', 'state', 'location',]
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'city', 
+                  'state', 'location', 'phone_number', 'per_what', 'cost']
 
 
 class LoginForm(AuthenticationForm):
@@ -108,20 +123,16 @@ class UpdateProfileForm(forms.ModelForm):
         fields = ['avatar', 'bio']
         
 class UpdateUserData(forms.ModelForm):
-    age = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={'class': 'form-control'}))
-    dogname = forms.CharField(required=True,
-                             widget=forms.TextInput(attrs={'class': 'form-control'}))
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
-    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
+    state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, 
+                              widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
     
     
     class Meta:
         model = UserData
-        fields = ['age', 'dogname','location', 'city', 'state']
+        fields = ['location', 'city', 'state']
         
