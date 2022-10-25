@@ -34,8 +34,8 @@
     top: -20px;
 }
 .goback {
-    position: absolute;
-    right: 502px;
+    position: relative;
+    right: 225px;
     outline: none !important;
     border: none !important;
 	background:none !important;   
@@ -47,6 +47,10 @@
 	background:none !important;
 }
 .backicon {
-    top: 28px;
+    top: -35px;
     width: 15px;
+}
+.nobstrp {
+    position: relative;
+    left: 22px;
 }  
