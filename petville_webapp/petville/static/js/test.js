@@ -17,5 +17,9 @@ $("#next").click(function () {
     $('#section2').fadeIn("slow");
 
 });
+$("#backto").click(function () {
+    $('#section2').hide();
+    $('#section1').fadeIn("slow");
+});
 },);
  

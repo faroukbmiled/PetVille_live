@@ -33,3 +33,20 @@
     border-radius: 50px;
     top: -20px;
 }
+.goback {
+    position: absolute;
+    right: 502px;
+    outline: none !important;
+    border: none !important;
+	background:none !important;   
+}
+.goback:active { 
+    border-style: outset !important;
+    outline: none !important;
+    border: none !important;
+	background:none !important;
+}
+.backicon {
+    top: 28px;
+    width: 15px;
+}  
