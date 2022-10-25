@@ -36,7 +36,7 @@ class RegisterForm(UserCreationForm):
     username = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'placeholder': 'Username',
-                                                             'class': 'form-control',
+                                                             'class': 'form-control', 'id': 'usnm',
                                                              }))
     email = forms.EmailField(required=True,
                              widget=forms.TextInput(attrs={'placeholder': 'Email',
@@ -54,7 +54,7 @@ class RegisterForm(UserCreationForm):
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password',
                                                                   'class': 'form-control',
                                                                   'data-toggle': 'password',
-                                                                  'id': 'password',
+                                                                  'id': 'password','id': 'password2',
                                                                   }))
     city = forms.CharField(max_length=100,
                                required=True,
@@ -82,11 +82,13 @@ class RegisterForm(UserCreationForm):
     my_field = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={'class': 'form-dropdown form-control checkboxclass'}),
                                           choices=MY_CHOICES)
     
+    questions = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+    
 
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'city', 
-                  'state', 'location', 'phone_number', 'per_what', 'cost', 'my_field',]
+                  'state', 'location', 'phone_number', 'per_what', 'cost', 'my_field', 'questions']
 
 
 class LoginForm(AuthenticationForm):

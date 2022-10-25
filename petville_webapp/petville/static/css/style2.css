@@ -54,3 +54,7 @@
     position: relative;
     left: 22px;
 }
+.sizetxt {
+    top: 15px;
+    font-size: 20px !important;
+}

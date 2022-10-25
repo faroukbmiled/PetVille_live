@@ -14,7 +14,7 @@
 	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
-	<script src="{% static '/js/test.js' %}"></script>
+	<script src="{% static '/js/petville.js' %}"></script>
 </head> {{ form.media }}
 
 <body class="fill" style="background-image: url(/static/images/bur.jpg);">
@@ -93,8 +93,10 @@
 						<div class="login-wrap p-0">
 							<h3 class="mb-4 centrelatrabhek">Complete your registration</h3>
 							<form action="#" class="signin-form">
-								<div id="dropd" class="form-group"> {{form.my_field}} </div>
-								<div class="form-group"></div>
+								<div id="dropd" class="form-group">
+									<p class="mb-4 centrelatrabhek sizetxt">What are you offering?</p>
+									 {{form.my_field}} </div>
+									 {{form.questions}}
 								<div class="form-group">
 									<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
 									<br>

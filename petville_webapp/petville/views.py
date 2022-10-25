@@ -48,6 +48,7 @@ class RegisterView(View):
             form = RegisterForm(request.POST)
             if form.is_valid():
                 form.save()
+                questions = form.cleaned_data.get('questions')
                 my_field = form.cleaned_data.get('my_field')
                 state = form.cleaned_data.get('state')
                 username = form.cleaned_data.get('username')
@@ -58,7 +59,7 @@ class RegisterView(View):
                 cost = form.cleaned_data.get('cost')
                 user = User.objects.get(username=username)
                 user_data = UserData.objects.create(user=user, city=city, location=location, cost=cost,my_field=my_field,
-                                                    state=state, phone_number=phone_number, per_what=per_what)
+                                                    state=state, phone_number=phone_number, per_what=per_what, questions=questions)
                 user_data.save()
                 profile = Profile.objects.create(user=user)
                 profile.save()

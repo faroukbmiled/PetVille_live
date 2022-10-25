@@ -20,6 +20,10 @@ $("#next").click(function () {
     $('#section2').fadeIn("slow");
 
 });
+$('#next').prop('disabled',true);  
+$('#password2').keyup(function(){  
+    $('.submit').prop('disabled', this.value == "" ? true : false);  
+});
 $("#backto").click(function () {
     $('#section2').hide();
     $('#section1').fadeIn("slow");
