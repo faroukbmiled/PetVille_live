@@ -1,216 +1,116 @@
-{% load static %}
-{% block title %} {% endblock title%}
-{% block content %}
+{% load static %} {% block title %} {% endblock title%} {% block content %}
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>Sign up!</title>
-	
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+	<title>Sign up!</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="{% static '/css/sumoselect.min.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<link rel="stylesheet" href="{% static '/css/style.css' %}">
 	<link rel="stylesheet" href="{% static '/css/style2.css' %}">
 	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
 	<script src="{% static '/js/test.js' %}"></script>
-	</head>
-	{{ form.media }}
-	<body class="fill" style="background-image: url(/static/images/bur.jpg);">
-	<section id="section1" class="ftco-section">
-		<div class="container js-fullheight">
-			<form method="POST">
-				{% csrf_token %}
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<a href="/"><img class="heading-section"src="/static/images/logop.png" ></img></a>
-				</div>
-			</div>
-			
-			<div class="row justify-content-center">
-				
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 centrelatrabhek">Sign up to PetVille!</h3> 
-				  {% if form.errors %}
-				  <div class="alert alert-danger alert-dismissible" role="alert">
-					  <div id="form_errors">
-						  {% for key, value in form.errors.items %}
-							  <strong> {{ value }} </strong>
-						  {% endfor %}
-					  </div>
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-					  </button>
-				  </div>
-				  {% endif %}
-		      	<form action="#" class="signin-form">
-					<div class="row">
-						<div class="col-md-6">
-						  <div class="form-group">
-							{{ form.first_name }}
-						  </div>
-						</div>
-						<div class="col-md-6">
-						  <div class="form-group">
-							{{ form.last_name }}
-						  </div>
-						</div>
-					  </div> 
-					<div class="form-group">
-						{{ form.username }} </div>
-					<div class="form-group">
-						{{ form.email }} </div>
-					<div class="form-group">
-						{{ form.phone_number }} </div>
-						<div class="row">
-							<div class="col-md-6">
-							  <div class="form-group">
-								{{ form.cost }}
-							  </div>
-							</div>
-							<div class="col-md-6">
-							  <div class="form-group">
-								{{ form.per_what }}
-							  </div>
-							</div>
-						  </div>
-					<div id="dropd" class="form-group">
-						  {{form.my_field}} </div>
-					<div id="dropd" class="form-group">
-						{{ form.state }} </div>
+</head> {{ form.media }}
 
-					<div id="menu" class="form-group">
-
-						{{ form.city }}
-
-					<div id="h_div" style="placeholder">
-
-					<div class="form-group mapclass"> {{ form.location }} </div> </div> </div>
-
-					<div id"pass1" class="form-group">
-						{{ form.password1 }} </div>
-					<div class="form-group">
-						{{ form.errors.password }} </div>
-					<div id="pass2" class="form-group">
-						{{ form.password2 }} </div>
-							
-	            <div class="form-group">
-	            </div>
-	            <div class="form-group">
-					<button id='next' type="button" class="form-control btn btn-primary submit px-3">Next -></button><br><br>
-				<hr width="80%" style=height:0.2px; color="#ADD8E6";>
-	            <div class="form-group d-md-flex">			
-					<div class="tcanter" style="left: 24%; position: relative;">
-					<a href="{% url 'login' %}" style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign in</span></a>
+<body class="fill" style="background-image: url(/static/images/bur.jpg);">
+	<form method="POST"> {% csrf_token %}
+		<section id="section1" class="ftco-section">
+			<div class="container js-fullheight">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<a href="/"><img class="heading-section" src="/static/images/logop.png"></img>
+						</a>
 					</div>
-	            </div>
-					
-					
 				</div>
-	          </form>
-		      </div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="section2" class="ftco-section">
-		
-		<div class="container js-fullheight">
-			
-			<form method="POST">
-				{% csrf_token %}
-				
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<a href="/"><img class="heading-section nobstrp"src="/static/images/logop.png" ></img></a>
-				</div>
-				<button id="backto" class="goback heading-section" type="button" ><img class="goback backicon" src="/static/images/back.png" ></button>
-			</div>
-			<div class="row justify-content-center">
-				
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 centrelatrabhek">Complete your registration</h3> 
-				  {% if form.errors %}
-				  <div class="alert alert-danger alert-dismissible" role="alert">
-					  <div id="form_errors">
-						  {% for key, value in form.errors.items %}
-							  <strong> {{ value }} </strong>
-						  {% endfor %}
-					  </div>
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-					  </button>
-				  </div>
-				  {% endif %}
-		      	<form action="#" class="signin-form">
-					<div class="row">
-						<div class="col-md-6">
-						  <div class="form-group">
-							{{ form.first_name }}
-						  </div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="login-wrap p-0">
+							<h3 class="mb-4 centrelatrabhek">Sign up to PetVille!</h3> {% if form.errors %}
+							<div class="alert alert-danger alert-dismissible" role="alert">
+								<div id="form_errors"> {% for key, value in form.errors.items %} <strong> {{ value }} </strong> {% endfor %} </div>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div> {% endif %}
+							<form action="#" class="signin-form">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group"> {{ form.first_name }} </div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group"> {{ form.last_name }} </div>
+									</div>
+								</div>
+								<div class="form-group"> {{ form.username }} </div>
+								<div class="form-group"> {{ form.email }} </div>
+								<div class="form-group"> {{ form.phone_number }} </div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group"> {{ form.cost }} </div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group"> {{ form.per_what }} </div>
+									</div>
+								</div>
+								<div id="dropd" class="form-group"> {{ form.state }} </div>
+								<div id="menu" class="form-group"> {{ form.city }}
+									<div id="h_div" style="placeholder">
+										<div class="form-group mapclass"> {{ form.location }} </div>
+									</div>
+								</div>
+								<div id "pass1" class="form-group"> {{ form.password1 }} </div>
+								<div class="form-group"> {{ form.errors.password }} </div>
+								<div id="pass2" class="form-group"> {{ form.password2 }} </div>
+								<div class="form-group"></div>
+								<div class="form-group">
+									<button id='next' type="button" class="form-control btn btn-primary submit px-3">Next -></button>
+									<br>
+									<br>
+									<hr width="80%" style=height:0.2px; color="#ADD8E6" ;>
+									<div class="form-group d-md-flex">
+										<div class="tcanter" style="left: 24%; position: relative;"><a href="{% url 'login' %}" style="color: #ADD8E6">Have an account?<span style="color: #ff0000"> Sign in</span></a></div>
+									</div>
+								</div>
 						</div>
-						<div class="col-md-6">
-						  <div class="form-group">
-							{{ form.last_name }}
-						  </div>
-						</div>
-					  </div> 
-					<div class="form-group">
-						{{ form.username }} </div>
-					<div class="form-group">
-						{{ form.email }} </div>
-					<div class="form-group">
-						{{ form.phone_number }} </div>
-						<div class="row">
-							<div class="col-md-6">
-							  <div class="form-group">
-								{{ form.cost }}
-							  </div>
-							</div>
-							<div class="col-md-6">
-							  <div class="form-group">
-								{{ form.per_what }}
-							  </div>
-							</div>
-						  </div> 
-
-					<div id"pass1" class="form-group">
-						{{ form.password1 }} </div>
-					<div class="form-group">
-						{{ form.errors.password }} </div>
-					<div id="pass2" class="form-group">
-						{{ form.password2 }} </div>
-							
-						
-					
-	            <div class="form-group">
-	            </div>
-	            <div class="form-group">
-					<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button><br><br>
-	            </div>
-					
-					
-				</div>
-	          </form>
-		      </div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	
+		</section>
+		<section id="section2" class="ftco-section">
+			<div class="container js-fullheight">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<a href="/"><img class="heading-section nobstrp" src="/static/images/logop.png"></img>
+						</a>
+					</div>
+					<button id="backto" class="goback heading-section" type="button"><img class="goback backicon" src="/static/images/back.png"></button>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="login-wrap p-0">
+							<h3 class="mb-4 centrelatrabhek">Complete your registration</h3>
+							<form action="#" class="signin-form">
+								<div id="dropd" class="form-group"> {{form.my_field}} </div>
+								<div class="form-group"></div>
+								<div class="form-group">
+									<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+									<br>
+									<br>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+		</form>
+		<script src="{% static '/js/popper.js' %}"></script>
+		<script src="{% static '/js/bootstrap.min.js' %}"></script>
+		<script src="{% static '/js/main.js' %}"></script>
+		<script src="{% static '/js/bootstrap-show-password.min.js' %}"></script>
+</body>
 
-  <script src="{% static '/js/popper.js' %}"></script>
-  <script src="{% static '/js/bootstrap.min.js' %}"></script>
-  <script src="{% static '/js/main.js' %}"></script>
-  <script src="{% static '/js/bootstrap-show-password.min.js' %}"></script>
-
-	</body>
-</html>
-{% endblock content %}
+</html> {% endblock content %}

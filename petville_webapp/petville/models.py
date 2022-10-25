@@ -7,6 +7,7 @@ from PIL import Image
 from location_field.models.plain import PlainLocationField
 from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
 from phonenumber_field.modelfields import PhoneNumberField
+from multiselectfield import MultiSelectField
 
 
 PER_CHOICES = (
@@ -26,7 +27,7 @@ class UserData(models.Model):
     per_what = models.CharField(max_length=11, choices=PER_CHOICES, null=True)
     cost = models.DecimalField(max_digits=4, decimal_places=2, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
-    my_field = models.CharField(max_length=500, choices=MY_CHOICES, null=True)
+    my_field = MultiSelectField(max_length=500, choices=MY_CHOICES, null=True)
     
     def __str__(self):
         return self.user.username
