@@ -7,12 +7,18 @@ from localflavor.tn.forms import TNGovernorateSelect
 from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import RegionalPhoneNumberWidget
-from djmoney.forms.fields import MoneyField
 
 PER_CHOICES = (
     ("TND/day", "TND/day"),
     ("TND/hour", "TND/hour"),
 )
+MY_CHOICES = (('dogsitter', 'Dog sitter'),
+              ('catsitter', 'Cat sitter'),
+              ('petgrooming', 'Pet Grooming'),
+              ('dogwalking', 'Dog Walking'),
+              ('catwalking', 'Cat Walking'))
+
+
 
 blank_choice = (('', '-- Select state --'),)
 class RegisterForm(UserCreationForm):
@@ -73,12 +79,14 @@ class RegisterForm(UserCreationForm):
     phone_number = PhoneNumberField(region="TN", min_length=8, max_length=12, 
                               widget=RegionalPhoneNumberWidget(attrs={'placeholder': "Phone Number: +216...",'class': 'form-control',
                                                                   }))
+    my_field = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={'class': 'form-dropdown form-control checkboxclass'}),
+                                          choices=MY_CHOICES)
     
 
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'city', 
-                  'state', 'location', 'phone_number', 'per_what', 'cost']
+                  'state', 'location', 'phone_number', 'per_what', 'cost', 'my_field',]
 
 
 class LoginForm(AuthenticationForm):

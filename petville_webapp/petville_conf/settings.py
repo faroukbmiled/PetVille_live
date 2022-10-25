@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'localflavor',
     "phonenumber_field",
     'djmoney',
+    'multiselectfield',
 ]
 
 REST_FRAMEWORK = {

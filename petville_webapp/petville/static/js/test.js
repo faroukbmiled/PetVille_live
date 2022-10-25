@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    $('.checkboxclass').SumoSelect({placeholder: '-- Your services --', csvDispCount: 4 });
+    });
 $(document).ready(function(){
 $('#section2').hide();
 $(function() {setTimeout(function() {$("#pass2").hide('blind', {}, 0)}, 0);}); 

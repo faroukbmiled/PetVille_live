@@ -8,7 +8,7 @@
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<link rel="stylesheet" href="{% static '/css/sumoselect.min.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="{% static '/css/style2.css' %}">
 	<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
 	<script src="{% static '/js/test.js' %}"></script>
 	</head>
 	{{ form.media }}
@@ -78,8 +79,9 @@
 								{{ form.per_what }}
 							  </div>
 							</div>
-						  </div> 
-					
+						  </div>
+					<div id="dropd" class="form-group">
+						  {{form.my_field}} </div>
 					<div id="dropd" class="form-group">
 						{{ form.state }} </div>
 

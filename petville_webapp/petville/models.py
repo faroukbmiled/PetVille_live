@@ -13,6 +13,11 @@ PER_CHOICES = (
     ("TND/day", "TND/day"),
     ("TND/hour", "TND/hour"),
 )
+MY_CHOICES = (('dogsitter', 'Dog sitter'),
+              ('catsitter', 'Cat sitter'),
+              ('petgrooming', 'Pet Grooming'),
+              ('dogwalking', 'Dog Walking'),
+              ('catwalking', 'Cat Walking'))
 class UserData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=255, null=True)
@@ -21,6 +26,7 @@ class UserData(models.Model):
     per_what = models.CharField(max_length=11, choices=PER_CHOICES, null=True)
     cost = models.DecimalField(max_digits=4, decimal_places=2, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
+    my_field = models.CharField(max_length=500, choices=MY_CHOICES, null=True)
     
     def __str__(self):
         return self.user.username
