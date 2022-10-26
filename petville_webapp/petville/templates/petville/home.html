@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static '/css/animal.css' %}" />  </head>
+    <link rel="stylesheet" href="{% static '/css/animal.css' %}" /> 
     <link rel="stylesheet" href="{% static '/css/home.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style2.css' %}">
+   </head>
+    
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
@@ -136,7 +139,7 @@
 					  <div class="d-flex align-items-center">
 						<div class="user-img" style="background-image:url({{user.profile.avatar.url}})"></div>
 						<div class="pl-3">
-						  <p class="name">{{user}}</p>
+						  <a style='display: display: block;' href="{% url 'profiles' user.username %}"><p class="name atageffect">{{user}}</p></a>
 						  <span class="position">{{user.userdata.my_field}}</span>
 						</div>
 					  </div>
