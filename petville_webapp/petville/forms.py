@@ -24,22 +24,22 @@ MY_CHOICES = (('dogsitter', 'Dog sitter'),
 blank_choice = (('', '-- Select state --'),)
 class RegisterForm(UserCreationForm):
     # fields we want to include and customize in our form
-    first_name = forms.CharField(max_length=100,
+    first_name = forms.CharField(max_length=15,
                                  required=True,
                                  widget=forms.TextInput(attrs={'placeholder': 'First Name',
                                                                'class': 'form-control',
                                                                }))
-    last_name = forms.CharField(max_length=100,
+    last_name = forms.CharField(max_length=15,
                                 required=True,
                                 widget=forms.TextInput(attrs={'placeholder': 'Last Name',
                                                               'class': 'form-control',
                                                               }))
-    username = forms.CharField(max_length=100,
+    username = forms.CharField(max_length=10,
                                required=True,
                                widget=forms.TextInput(attrs={'placeholder': 'Username',
                                                              'class': 'form-control', 'id': 'usnm',
                                                              }))
-    email = forms.EmailField(required=True,
+    email = forms.EmailField(max_length=30, required=True,
                              widget=forms.TextInput(attrs={'placeholder': 'Email',
                                                            'class': 'form-control',
                                                            }))
@@ -66,11 +66,8 @@ class RegisterForm(UserCreationForm):
     per_what = forms.ChoiceField(choices=PER_CHOICES, required=True,
                               widget=forms.Select(attrs={'class':'form-dropdown form-control'}))
     
-    city = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={'placeholder': 'Your Adress','class': 'form-control'}))
     
-    location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
+    location = PlainLocationField(max_length=10,attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
     
     cost = forms.DecimalField(max_digits=4, decimal_places=2, required=True,
@@ -83,7 +80,7 @@ class RegisterForm(UserCreationForm):
     my_field = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={'class': 'form-dropdown form-control checkboxclass'}),
                                           choices=MY_CHOICES)
     
-    questions = forms.CharField(max_length = 200,widget=forms.Textarea(attrs={'placeholder': "Answer these questions here...",
+    questions = forms.CharField(max_length=200,widget=forms.Textarea(attrs={'placeholder': "Answer these questions here...",
                                                              'class': 'form-control', 'rows': 5}))
     
 
