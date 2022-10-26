@@ -150,23 +150,6 @@ def location(self, request, *args, **kwargs):
             form = RegisterForm()
         return render(request, 'petville/profile.html', {'test': test})
     
-def user_page(response, username):
-        if response.method == "POST":
-            test = UpdateUserData(response.POST)
-            if form.is_valid():
-                form.save()
-                latitude = form.cleaned_data.get('location')
-                coor = form.cleaned_data.get('city')
-                user = User.objects.get(username=user)
-                user_data = UserData.objects.create(user=user, coor=coor, latitude=latitude)
-                user_data.save()
-                latt = UserData.objects.create(user=user)
-                latt.save()
-                return redirect('login')
-        else:
-            form = RegisterForm()
-        return render(response, 'petville/profile.html', {'test': test})
-    
 def user_info(request, pk=None):
         if pk:
             user = get_object_or_404(User, pk=pk)

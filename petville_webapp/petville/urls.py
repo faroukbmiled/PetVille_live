@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, RegisterView, CustomLoginView, profile, user_info, UserListView, user_page
+from .views import home, RegisterView, CustomLoginView, profile, UserListView, user_info
 from petville import views
 from django.urls import include, path
 from petville import views
@@ -11,7 +11,6 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='petville-register'),
     path('profile/', profile, name='petville-profile'),
     path('petsitter/id/<int:pk>/', views.user_info, name='profile_pk'),
-    path("user/<str:username>/",user_page, name="user_page"),
     path('users/', UserListView.as_view(), name='user-list'),
     path('find/', UserListView.as_view( template_name='petville/find.html'), name='find'),
     path('about/', CustomLoginView.as_view( template_name='petville/about.html'), name='about'),
