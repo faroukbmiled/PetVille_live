@@ -82,7 +82,8 @@ class RegisterForm(UserCreationForm):
     my_field = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={'class': 'form-dropdown form-control checkboxclass'}),
                                           choices=MY_CHOICES)
     
-    questions = forms.CharField(initial = 'type your answers here!', widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+    questions = forms.CharField(widget=forms.Textarea(attrs={'placeholder': "Answer these questions here...",
+                                                             'class': 'form-control', 'rows': 5}))
     
 
     class Meta:

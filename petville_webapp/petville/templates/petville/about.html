@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <form method="POST"> {% csrf_token %} </form>
-    <title>PetVille/about</title>
+    <title>PetVille/Vet</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
@@ -13,8 +12,10 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="smallsz navbar"href="/">
-    <img class="pet" src="{% static '/images/logop.png' %}"> <title class="smallsz"></title>PetVille</a>
+        <a class="smallsz navbar" href="/">
+          <img class="pet" src="{% static '/images/logop.png' %}">
+          <title class="smallsz"></title>PetVille
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="fa fa-bars"></span> Menu </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
@@ -22,8 +23,8 @@
             <li class="nav-item">
               <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item active">
-              <a href="/about" class="nav-link">About us</a>
+            <li class="nav-item">
+              <a href="/find" class="nav-link">Find a pet sitter</a>
             </li>
             <li class="nav-item">
               <a href="/vet" class="nav-link">Veterinarian</a>
@@ -31,15 +32,18 @@
             <li class="nav-item">
               <a href="/gallery" class="nav-link">Gallery</a>
             </li>
-            <li class="nav-item">
-              <a href="/find" class="nav-link">Find a pet sitter</a>
+            <li class="nav-item active">
+              <a href="/about" class="nav-link">About</a>
             </li> {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
             </li>
-            <a href="../profile/">
+            <a href="profile/">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+            <li class="nav-item">
+              <a href="{% url 'petville-register' %}" class="nav-link">Join</a>
+            </li>
             </li> {% endif %}
           </ul>
         </div>
@@ -50,46 +54,107 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-            <blockquote>
-              <h1 class="mb-0 bread"><strong>Pets are always home with us</strong></h1>
-            </blockquote>
-            <p>
-              My pet sitters are the ones who meet with clients and then take care of the pets when owners leave town or work long hours.
-              Hiring a good employee is important, and retaining that employee is my number one priority.
-              Pet sitting is a part-time job, and nobody’s mortgage really depends on this income.
-              My employees choose to work for my company because they need supplemental income but more importantly, they love pets.
-              Anyone who applies to pet sit and passes a background check has a good potential to be hired.
-              The tricky part is how to manage them.  How do I know what they are doing while nobody is watching?
-              The answer is simple: trust. If you have difficulty trusting people, the pet sitting business is not for you. This whole business model is based on trust. Clients trust us with their pets and homes.
+            <div class="col-md-9 ftco-animate pb-5">
+              <h1 class="mb-0 bread"><strong style='font-size: 0.8em;'><br> - Your pet is safe with us  - </strong></h1>
+              <p>
+                The biggest reason to pay for a professional pet sitter is that they will provide you with more peace of mind. 
+                You can rest easy and enjoy your trip because you know they have the experience, 
+                training, and responsibility to make sure your pet gets the absolute best care while you're away.
+              </p>
+            </div>
+            <p class="breadcrumbs mb-2">
+              <span class="mr-2">
+                <a href="/">Home <i class="ion-ios-arrow-forward"></i>
+                </a>
+              </span>
+              <span>About<i class="ion-ios-arrow-forward"></i>
+              </span>
             </p>
+            <h1 class="mb-0 bread">About us</h1>
           </div>
         </div>
       </div>
     </section>
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    <section class="ftco-section bg-light">
       <div class="container">
-        <div class="row d-flex no-gutters">
-          <div class="col-md-5 d-flex">
-            <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(/static/images/xabout-1.jpg.pagespeed.ic.0OqWJEDVkk.jpg)"></div>
-          </div>
-          <div class="col-md-7 pl-md-5 py-md-5">
-            <div class="heading-section pt-md-5">
-              <h2 class="mb-4">Why Choose Us?</h2>
-            </div>
-            <div class="row">
-              <div class="col-md-6 services-2 w-100 d-flex">
-                <div class="icon d-flex align-items-center justify-content-center">
-                  <span class="flaticon-stethoscope"></span>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="staff">
+              <div class="img-wrap d-flex align-items-stretch">
+                <div class="img align-self-stretch" style="background-image: url(/static/images/farouk.jpg);"></div>
+              </div>
+              <div class="text pt-3 px-3 pb-4 text-center">
+                <h3>Farouk B'Miled</h3>
+                <span style='font-size: 1.2em;color: #03a1fc !important;' class="position text mb-2">Back-end developer</span>
+                <div class="faded">
+                  <ul class="ftco-social text-center row list-unstyled">
+                    <li class="ftco-animate" style="left: 25px !important;">
+                      <a href="https://www.linkedin.com/in/farouk-ben-miled-43553022b/" target="_blank" data-toggle="tooltip" data-placement="top" title="linkedin" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-linkedin"></span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="ftco-animate" style="left: 65px !important;">
+                      <a href="mailto:fcfaroukfc@gmail.com" target="_blank" data-toggle="tooltip" data-placement="top" title="Email" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-envelope"></span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="text pl-3">
-                  <h4>Protection</h4>
-                  <p>
-                    Pet safety is our top priority
-                  </p>
-                  <h5>24/7 Support</h5>
-                  <p>
-                    Team to support any unexpected events
-                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="staff">
+              <div class="img-wrap d-flex align-items-stretch">
+                <div class="img align-self-stretch" style="background-image: url(/static/images/aymen.jpg);"></div>
+              </div>
+              <div class="text pt-3 px-3 pb-4 text-center">
+                <h3>Aymen Jbeniani</h3>
+                <span style='font-size: 1.2em;color: #03a1fc !important;' class="position text mb-2">Front-end developer</span>
+                <div class="faded">
+                  <ul class="ftco-social text-center row list-unstyled">
+                    <li class="ftco-animate" style="left: 25px !important;">
+                      <a href="https://www.linkedin.com/in/aymen-jebeniani-4a9952201" target="_blank" data-toggle="tooltip" data-placement="top" title="linkedin" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-linkedin"></span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="ftco-animate" style="left: 65px !important;">
+                      <a href="mailto:aymenjebeniani05@gmail.com" target="_blank" data-toggle="tooltip" data-placement="top" title="Email" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-envelope"></span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="staff">
+              <div class="img-wrap d-flex align-items-stretch">
+                <div class="img align-self-stretch" style="background-image: url(/static/images/khawla.jpg);"></div>
+              </div>
+              <div class="text pt-3 px-3 pb-4 text-center">
+                <h3>Khawla Dhouay</h3>
+                <span style='font-size: 1.2em;color: #03a1fc !important;' class="position text mb-2">Front-end developer</span>
+                <div class="faded">
+                  <ul class="ftco-social text-center row list-unstyled">
+                    <li class="ftco-animate" style="left: 25px !important;">
+                      <a href="https://www.linkedin.com/in/khawla-daouay-90249022b/" target="_blank" data-toggle="tooltip" data-placement="top" title="linkedin" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-linkedin"></span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="ftco-animate" style="left: 65px !important;">
+                      <a href="mailto:daouaykhawla782@gmail.com" target="_blank" data-toggle="tooltip" data-placement="top" title="Email" class='d-flex align-items-center justify-content-center'>
+                        <span class="fa fa-envelope"></span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -97,7 +162,7 @@
         </div>
       </div>
     </section>
-   <footer class="footer">
+    <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -121,7 +186,7 @@
               </li>
             </ul>
           </div>
-		  <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+          <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
             <h2 class="footer-heading">Quick Links</h2>
             <ul class="list-unstyled">
               <li>
@@ -130,13 +195,16 @@
               <li>
                 <a href="/about" class="py-2 d-block">About</a>
               </li>
-			  <li>
+              <li>
+                <a href="{% url 'login' %}" class="py-2 d-block">Works</a>
+              </li>
+              <li>
                 <a href="/vet" class="py-2 d-block">Veterinarian</a>
               </li>
-			  <li>
+              <li>
                 <a href="/find" class="py-2 d-block">Find a pet sitter</a>
               </li>
-			  <li>
+              <li>
                 <a href="{% url 'login' %}" class="py-2 d-block">Works</a>
               </li>
             </ul>
@@ -235,6 +303,6 @@
       gtag('js', new Date());
       gtag('config', 'UA-23581568-13');
     </script>
-    <script defer src="{% static 'js/home.js' %}"></script>
-  </body>
+    <script defer src="{% static 'js/home.js' %}"></script>undefined
+  </body>undefined
 </html> {% endblock content %}

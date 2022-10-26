@@ -23,8 +23,8 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="/about" class="nav-link">About</a>
-            </li>
+              <a href="/find" class="nav-link">Find a pet sitter</a>
+            </li> 
             <li class="nav-item">
               <a href="/vet" class="nav-link">Veterinarian</a>
             </li>
@@ -32,14 +32,18 @@
               <a href="/gallery" class="nav-link">Gallery</a>
             </li>
             <li class="nav-item">
-              <a href="/find" class="nav-link">Find a pet sitter</a>
-            </li> {% if user.is_authenticated %} <li class="nav-item">
+              <a href="/about" class="nav-link">About</a>
+            </li>
+            {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
             </li>
             <a href="profile/">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+              <li class="nav-item">
+                <a href="{% url 'petville-register' %}" class="nav-link">Join</a>
+              </li>
             </li> {% endif %}
           </ul>
         </div>
@@ -50,9 +54,9 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-11 ftco-animate text-center">
-            <h1 class="mb-4">Highest Quality Care For Pets You'll Love </h1>
+            <h1 class="mb-4"> Love and concern for your pets while you’re away! </h1>
             <p>
-              <a href="/" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span>
+              <a href="about/" class="btn btn-primary mr-md-4 py-3 px-4">Learn more <span class="ion-ios-arrow-forward"></span>
               </a>
             </p>
           </div>

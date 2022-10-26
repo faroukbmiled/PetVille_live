@@ -21,8 +21,8 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="/about" class="nav-link">About</a>
-            </li>
+              <a href="/find" class="nav-link">Find a pet sitter</a>
+            </li> 
             <li class="nav-item active">
               <a href="/vet" class="nav-link">Veterinarian</a>
             </li>
@@ -30,14 +30,18 @@
               <a href="/gallery" class="nav-link">Gallery</a>
             </li>
             <li class="nav-item">
-              <a href="/find" class="nav-link">Find a pet sitter</a>
-            </li> {% if user.is_authenticated %} <li class="nav-item">
+              <a href="/about" class="nav-link">About</a>
+            </li>
+            {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
             </li>
-            <a href="../profile/">
+            <a href="profile/">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+              <li class="nav-item">
+                <a href="{% url 'petville-register' %}" class="nav-link">Join</a>
+              </li>
             </li> {% endif %}
           </ul>
         </div>
@@ -56,7 +60,7 @@
               <span>Veterinarian <i class="ion-ios-arrow-forward"></i>
               </span>
             </p>
-            <h1 class="mb-0 bread">Meet Our Veterinary Doctor</h1>
+            <h1 class="mb-0 bread">Meet Our Veterinary Doctors</h1>
           </div>
         </div>
       </div>
@@ -132,8 +136,8 @@
                 <div class="img align-self-stretch" style="background-image: url(/static/images/staff4.jpg);"></div>
               </div>
               <div class="text pt-3 px-3 pb-4 text-center">
-                <h3>Alicia Henderson</h3>
-                <span class="position mb-2">Dr.Walid ben mustafa</span>
+                <h3>Dr.Walid ben mustafa</h3>
+                <span class="position mb-2">Veterinarian</span>
                 <div class="faded">
 				  <ul class="ftco-social text-center">
                     <li class="ftco-animate">
@@ -153,8 +157,8 @@
                 <div class="img align-self-stretch" style="background-image: url(/static/images/staff5.jpg);"></div>
               </div>
               <div class="text pt-3 px-3 pb-4 text-center">
-                <h3>Lloyd Wilson</h3>
-                <span class="position mb-2">Dr.Amira Zaier</span>
+                <h3>Dr.Amira Zaier</h3>
+                <span class="position mb-2">Veterinarian</span>
                 <div class="faded">
                   <ul class="ftco-social text-center">
                     <li class="ftco-animate">
@@ -174,8 +178,8 @@
                 <div class="img align-self-stretch" style="background-image: url(/static/images/staff6.jpg);"></div>
               </div>
               <div class="text pt-3 px-3 pb-4 text-center">
-                <h3>Rachel Parker</h3>
-                <span class="position mb-2">Dr.Kaddour Wejih</span>
+                <h3>Dr.Kaddour Wejih</h3>
+                <span class="position mb-2">Veterinarian</span>
                 <div class="faded">
                   <ul class="ftco-social text-center">
                     <li class="ftco-animate">
@@ -195,8 +199,8 @@
                 <div class="img align-self-stretch" style="background-image: url(/static/images/staff7.jpg);"></div>
               </div>
               <div class="text pt-3 px-3 pb-4 text-center">
-                <h3>Ian Smith</h3>
-                <span class="position mb-2">Dr.Saoussen Riahi</span>
+                <h3>Dr.Saoussen Riahi</h3>
+                <span class="position mb-2">Veterinarian</span>
                 <div class="faded">
                   <ul class="ftco-social text-center">
                     <li class="ftco-animate">

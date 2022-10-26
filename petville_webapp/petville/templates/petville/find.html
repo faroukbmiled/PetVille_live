@@ -21,24 +21,28 @@
             <li class="nav-item">
               <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item">
-              <a href="/about" class="nav-link">About</a>
-            </li>
+            <li class="nav-item active">
+              <a href="/find" class="nav-link">Find a pet sitter</a>
+            </li> 
             <li class="nav-item">
               <a href="/vet" class="nav-link">Veterinarian</a>
             </li>
             <li class="nav-item">
               <a href="/gallery" class="nav-link">Gallery</a>
             </li>
-            <li class="nav-item active">
-              <a href="/find" class="nav-link">Find a pet sitter</a>
-            </li> {% if user.is_authenticated %} <li class="nav-item">
+            <li class="nav-item">
+              <a href="/about" class="nav-link">About</a>
+            </li>
+            {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
             </li>
-            <a href="../profile/">
+            <a href="profile/">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+              <li class="nav-item">
+                <a href="{% url 'petville-register' %}" class="nav-link">Join</a>
+              </li>
             </li> {% endif %}
           </ul>
         </div>
@@ -57,7 +61,7 @@
               <span>Find a pet sitter <i class="ion-ios-arrow-forward"></i>
               </span>
             </p>
-            <h1 class="mb-0 bread">find a pet sitter</h1>
+            <h1 class="mb-0 bread">Find a pet sitter</h1>
           </div>
         </div>
       </div>
