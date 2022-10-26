@@ -1,4 +1,3 @@
-from random import choices
 from urllib import request
 import uuid
 from django.db import models

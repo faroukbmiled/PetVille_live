@@ -4846,13 +4846,13 @@ h1,h2,h3,h4,.h1,.h2,.h3,.h4{
   line-height:1
 }
 .pet{
-  width: 38px;
-  height: 37x;
-  right: 10%;
+  width: 35px;
+  height: 35px;
+  bottom: 3px !important;
+  right: 5%;
 	position: relative;
 }
 .smallsz{
-  
   font-weight: bold;
   font-size: 2.0em;
 	position: absolute;
