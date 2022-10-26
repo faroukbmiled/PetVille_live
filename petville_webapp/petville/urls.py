@@ -10,7 +10,7 @@ urlpatterns = [
     path('', homepage, name='petville-home'),
     path('register/', RegisterView.as_view(), name='petville-register'),
     path('profile/', profile, name='petville-profile'),
-    path('petsitter/id/<int:pk>/', views.user_info, name='profile_pk'),
+    path('profiles/<username>/', views.user_info, name='profiles'),
     path('users/', UserListView.as_view(), name='user-list'),
     path('find/', UserListView.as_view( template_name='petville/find.html'), name='find'),
     path('about/', CustomLoginView.as_view( template_name='petville/about.html'), name='about'),

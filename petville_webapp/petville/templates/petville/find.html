@@ -82,7 +82,7 @@
 					<p>{{ user.userdata.phone_number }}</p>
 					<ul class="ftco-social text-center">
 					  <li class="ftco-animate">
-						<a href="http://127.0.0.1:8000/petsitter/id/{{user.id}}/" class="d-flex align-items-center justify-content-center">
+						<a href="{% url 'profiles' user.username %}" class="d-flex align-items-center justify-content-center">
 						  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
               </svg>
@@ -217,12 +217,10 @@
     <script>
       eval(mod_pagespeed_5kC6qwcDZy);
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script>
       eval(mod_pagespeed_dKq4O7yY2L);
     </script>
     <script src="{% static 'js/main2.js' %}"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
 

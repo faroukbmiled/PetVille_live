@@ -151,9 +151,9 @@ def location(self, request, *args, **kwargs):
             form = RegisterForm()
         return render(request, 'petville/profile.html', {'test': test})
     
-def user_info(request, pk=None):
-        if pk:
-            user = get_object_or_404(User, pk=pk)
+def user_info(request, username):
+        if username:
+            user = get_object_or_404(User, username=username)
         else:
             user = request.user
         args = {'user': user}
