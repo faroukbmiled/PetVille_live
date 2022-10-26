@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.urls import reverse_lazy
@@ -157,3 +158,9 @@ def user_info(request, pk=None):
             user = request.user
         args = {'user': user}
         return render(request, 'petville/userinfo.html', args)
+    
+def homepage(request):
+    context = {
+    "users": User.objects.all(),
+    }
+    return render(request=request, template_name='petville/home.html', context=context)

@@ -125,19 +125,19 @@
 		  <div class="row ftco-animate">
 			<div class="col-md-12">
 			  <div class="carousel-testimony owl-carousel ftco-owl">
-          {% for user in object_list %}
+          {% for user in users %}
 				<div class="item">
 				  <div class="testimony-wrap py-4">
 					<div class="icon d-flex align-items-center justify-content-center">
 					  <span class="fa fa-quote-left"></span>
 					</div>
 					<div class="text">
-					  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					  <p class="mb-4">{{user.profile.bio}}</p>
 					  <div class="d-flex align-items-center">
-						<div class="user-img" style="background-image:url(/static/images/xperson_1.jpg.pagespeed.ic.P4pHl6glbj.jpg)"></div>
+						<div class="user-img" style="background-image:url({{user.profile.avatar.url}})"></div>
 						<div class="pl-3">
 						  <p class="name">{{user}}</p>
-						  <span class="position">Marketing Manager</span>
+						  <span class="position">{{user.userdata.my_field}}</span>
 						</div>
 					  </div>
 					</div>
@@ -163,13 +163,14 @@
               </div>
             </div>
           </div>
+          
           <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18 text-center">
               <div class="text">
-                <strong class="number" data-number="8500">0</strong>
+                <strong class="number" data-number="{{users.count}}"></strong>
               </div>
               <div class="text">
-                <span>Professionals</span>
+                <span>Pet sitters</span>
               </div>
             </div>
           </div>
@@ -193,6 +194,7 @@
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </section>

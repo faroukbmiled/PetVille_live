@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, RegisterView, CustomLoginView, profile, UserListView, user_info
+from .views import home, RegisterView, CustomLoginView, profile, UserListView, user_info,homepage
 from petville import views
 from django.urls import include, path
 from petville import views
@@ -7,7 +7,7 @@ from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
-    path('', home, name='petville-home'),
+    path('', homepage, name='petville-home'),
     path('register/', RegisterView.as_view(), name='petville-register'),
     path('profile/', profile, name='petville-profile'),
     path('petsitter/id/<int:pk>/', views.user_info, name='profile_pk'),
