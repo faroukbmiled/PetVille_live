@@ -33,6 +33,7 @@ class Admin(commands.Cog):
         self.logoMsize = data["logoMsize"]
         self.errorgif = data["errorgif"]
         self.thumb = data["thumb"]
+        self.headers = {'Authorization': 'Token 296bce215ef1fb673d10512ed0d9c8aa5cdc5084'}
         self.bot: petville = bot
 
     @commands.command()
@@ -92,7 +93,7 @@ class Admin(commands.Cog):
     async def states(self, interaction: Interaction) -> None:
         """info about states"""
         api = self.api_states
-        status = get(api)
+        status = requests.get(api, headers=self.headers)
         
         if status.status_code != 200:
             
@@ -115,7 +116,7 @@ class Admin(commands.Cog):
             
         else:
             empty = ['\---------------']
-            jsonify = get(api).json()
+            jsonify = requests.get(api, headers=self.headers).json()
             if status:
                 for i in jsonify:
                     empty.append(f'{i["username"]}')

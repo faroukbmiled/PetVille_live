@@ -8,5 +8,5 @@
     "web_link": "https://github.com/faroukbmiled",
     "port_link": "https://github.com/faroukbmiled",
     "itsfinegif": "https://cdn.discordapp.com/attachments/869978103471046708/1029141337867567214/giphy.gif",
-    "api_states": "http://127.0.0.1:8000/api/users/?format=json"
+    "api_states": "http://127.0.0.1:8000/api/v1/users/?format=json"
  }
