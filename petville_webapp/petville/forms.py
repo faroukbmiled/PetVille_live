@@ -7,6 +7,7 @@ from localflavor.tn.forms import TNGovernorateSelect
 from localflavor.tn.tn_governorates import GOVERNORATE_CHOICES
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import RegionalPhoneNumberWidget
+from django.core.validators import MaxLengthValidator
 
 PER_CHOICES = (
     ("TND/day", "TND/day"),
@@ -82,7 +83,7 @@ class RegisterForm(UserCreationForm):
     my_field = forms.MultipleChoiceField(widget=forms.SelectMultiple(attrs={'class': 'form-dropdown form-control checkboxclass'}),
                                           choices=MY_CHOICES)
     
-    questions = forms.CharField(widget=forms.Textarea(attrs={'placeholder': "Answer these questions here...",
+    questions = forms.CharField(max_length = 200,widget=forms.Textarea(attrs={'placeholder': "Answer these questions here...",
                                                              'class': 'form-control', 'rows': 5}))
     
 
