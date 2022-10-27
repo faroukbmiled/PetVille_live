@@ -132,7 +132,8 @@ def profile(request):
         profile_form = UpdateProfileForm(instance=request.user.profile)
         user_data = UpdateUserData(instance=request.user.userdata)
 
-    return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'user_data': user_data})
+    return render(request, 'petville/profile.html', {'user_form': user_form, 'profile_form': profile_form, 
+                                                     'user_data': user_data})
 
 def location(self, request, *args, **kwargs):
         if request.method == "POST":

@@ -1,66 +1,417 @@
-{% extends "petville/base.html" %}
-{% load static %}
-{% block title %}Profile Page{% endblock title %}
-{% block content %}
-<link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
-<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
-<link rel="stylesheet" href="{% static '/css/showhide.css' %}" />
-    <div class="row my-3 p-3">
-        <img class="img-fluid img-thumbnail" src="{{ user.profile.avatar.url }} " style='height: 30%; width: 20%;'/>
-    </div>
-    {% if user_form.errors %}
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <div id="form_errors">
-                {% for key, value in user_form.errors.items %}
-                    <strong>{{ value }}</strong>
-                {% endfor %}
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+{% load static %} {% block title %} {% endblock title%} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PetVille/Find</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static '/css/sumoselect.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static '/css/animal.css' %}" /> 
+    <link rel="stylesheet" href="{% static '/css/home.css' %}">
+    <script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="{% static '/css/animal.css' %}" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/sumoselect.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
+    <script src="{% static '/js/petville2.js' %}"></script>
+    
+    
+    <style>
+      .row{
+        position: relative;
+        right: -31px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+      .mb-0 {
+        margin-bottom: 0!important;
+        font-size: 14px;
+    }
+    .card-body {
+      font-weight: 500;
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 1.25rem;
+  }
+      </style>
+  </head>
+  <form method="POST"> {% csrf_token %}
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="smallsz navbar"href="/">
+    <img class="pet" src="{% static '/images/logop.png' %}"> <title class="smallsz"></title>PetVille</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-bars"></span> Menu </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+             <li class="nav-item">
+              <a href="/find" class="nav-link">Find a pet sitter</a>
+            </li> 
+            <li class="nav-item">
+              <a href="/vet" class="nav-link">Veterinarian</a>
+            </li>
+            <li class="nav-item">
+              <a href="/gallery" class="nav-link">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link">About</a>
+            </li>
+            {% if user.is_authenticated %} <li class="nav-item">
+              <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
+            </li>
+            <a href="{% url 'petville-profile' %}"> </a>
+            <li class="nav-item active">
+                <a href="/profile" class="nav-link">Profile</a>
+              </li>
+    
+             {% else %} <li class="nav-item">
+              <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+              <li class="nav-item">
+                <a href="{% url 'petville-register' %}" class="nav-link">Join</a>
+              </li>
+            </li> {% endif %}
+          </ul>
         </div>
-    </head>
-    {% endif %}
+      </div>
+    </nav>
     {{ user_data.media }}
-    <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Username:</label>
-                            {{ user_form.username }}
-                        <label class="small mb-1">Email:</label>
-                            {{ user_form.email }}
-                        
-                            {{ user_data.state }}
-                        <div id="menu">
-                            {{ user_data.city }}
-                            {{ user_data.cost }}
-                            {{ user_data.per_what }}
-                            {{ user_data.phone_number }}
-                            {{ user_data.my_field }}
-                            {{ user_data.questions }}
-                    
-                            <div id="h_div" class="modal-bg">
-                            <div class="">  {{ user_data.location }}  </div> </div>
-                        </div>
-                     </div>
-                    
-                     
-                    <div class="form-group">
-                        <a href="{% url 'password_change' %}">Change Password</a>
-                        <hr>
-                        <label class="small mb-1">Change Avatar:</label>
-                        {{ profile_form.avatar }}
-                    </div>
-                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
+    <section class="hero-wrap hero-wrap-2" style="background-image:url(/static/images/neww.jpg);height: 200px;" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end" style="height: 200px;">
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs mb-2">
+              <span class="mr-2">
+                <a href="/">Home <i class="ion-ios-arrow-forward"></i>
+                </a>
+              </span>
+              <span>Profiles <i class="ion-ios-arrow-forward"></i>
+              </span>
+            </p>
+            <h1 class="mb-0 bread">Your Profile</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div>
+        {% if messages %}
+        <div class="alert alert-dismissible" role="alert">
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+    <section style="background-color: #eee;" id="slc1">
+      <div class="container py-5">
+        
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="{{ user.profile.avatar.url }}" alt="avatar"
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h4 class="my-3">{{ user.username }}</h4>
+                <p class="text-muted mb-1">{{ user.userdata.cost }} {{ user.userdata.per_what }}</p>
+                <p class="text-muted mb-1">From {{ user.userdata.state }}</p>
+                <p class="text-muted mb-1">{{ user.userdata.my_field }}</p>
+                <div class="d-flex justify-content-center mb-2">
                 </div>
+              </div>
             </div>
-            <br><br>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
-            <script src="{% static '/js/test.js' %}"></script>
-        </form>
+            <div class="card mb-4 mb-lg-0">
+              <div class="card-body p-0">
+                <ul class="card-body text-center">
+                  <bold class="mb-0">Bio:</bold>
+                  <p class="text-center">
+                    <p class="mb-0">{{ user.profile.bio }} </p>
+                  </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        <div class='test00'>
+            <a class='btn btn-primary' id='editbtn'> Edit </a></div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card mb-4 row rounded opacity-75" style='width: 545px !important;'>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><strong>Email:</strong> {{ user.email }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><strong>Phone number:</strong> {{ user.userdata.phone_number }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><strong>Adress:</strong> {{ user.userdata.city }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><strong>Info:</strong> {{ user.userdata.questions }}</p>
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4 mb-md-0" style="width: 545px !important">
+                  <div class="card-body">
+                    <p class="text-muted mb-0"><strong>Location:</strong></p>
+                    <div class="">  {{ user_data.location }}  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background-color: #eee;" id='slc2'>
+        <div class="container py-5">
+          
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img src="{{ user.profile.avatar.url }}" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <p class="my-3">Username: {{ user_form.username }}</p>
+                  <p class="text-muted mb-1">Rate: {{ user_data.cost }} </p>
+                  <p class="text-muted mb-1">{{ user_data.per_what }} </p>
+                  <p class="text-muted mb-1">From: {{ user_data.state }}</p>
+                  <p class="text-muted mb-1">Services: </p>{{ user_data.my_field }}
+                  <div class="d-flex justify-content-center mb-2">
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-4 mb-lg-0">
+                <div class="card-body p-0">
+                  <ul class="card-body text-center">
+                    <bold class="mb-0">Bio:</bold>
+                    <p class="text-center">
+                      <p class="mb-0">{{ profile_form.bio }} </p>
+                    </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button class='btn btn-primary' id='backbtn'> Back </button>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4 row rounded opacity-75" style='width: 545px !important;'>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><strong>First name:</strong> {{ user_form.first_name }} </p>     
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0"><strong>Last name:</strong> {{ user_form.last_name }} </p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><strong>Email:</strong> {{ user_form.email }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><strong>Phone number:</strong> {{ user_data.phone_number }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><strong>Adress:</strong> {{ user_data.city }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><strong>Info:</strong> {{ user_data.questions }}</p>
+                      <div style="position: absolute;left: -999em;">{{ user_data.location }}</div>
+                    </div>
+                  </div>    
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-{% endblock content %}
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+            <h2 class="footer-heading">Petsitting</h2>
+            <ul class="ftco-footer-social p-0">
+              <li class="ftco-animate">
+                <a href="/" data-toggle="tooltip" data-placement="top" title="Twitter">
+                  <span class="fa fa-twitter"></span>
+                </a>
+              </li>
+              <li class="ftco-animate">
+                <a href="/" data-toggle="tooltip" data-placement="top" title="Facebook">
+                  <span class="fa fa-facebook"></span>
+                </a>
+              </li>
+              <li class="ftco-animate">
+                <a href="/" data-toggle="tooltip" data-placement="top" title="Instagram">
+                  <span class="fa fa-instagram"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+            <h2 class="footer-heading">Quick Links</h2>
+            <ul class="list-unstyled">
+              <li>
+                <a href="/" class="py-2 d-block">Home</a>
+              </li>
+              <li>
+                <a href="/about" class="py-2 d-block">About</a>
+              </li>
+              <li>
+                <a href="/vet" class="py-2 d-block">Veterinarian</a>
+              </li>
+              <li>
+                <a href="/find" class="py-2 d-block">Find a pet sitter</a>
+              </li>
+              <li>
+                <a href="{% url 'login' %}" class="py-2 d-block">Works</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+            <h2 class="footer-heading">Have a Questions?</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li>
+                  <span class="icon fa fa-map"></span>
+                  <span class="text">LAC 1, tunis, Tunisia</span>
+                </li>
+                <li>
+                  <a href="/">
+                    <span class="icon fa fa-phone"></span>
+                    <span class="text">+216 54 107 023</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    <span class="icon fa fa-paper-plane"></span>
+                    <span class="text">
+                      <span class="__cf_email__" data-cfemail="2841464e476851475d5a4c4745494146064b4745">[email&#160;protected]</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12 text-center">
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+      </svg>
+    </div>
+    <script src="{% static 'js/animal3.js' %}"></script>
+    <script>
+      eval(mod_pagespeed_0ztj8eK1zU);
+    </script>
+    <script>
+      eval(mod_pagespeed_9gxkp99emx);
+    </script>
+    <script>
+      eval(mod_pagespeed_z5q9ug_Tnu);
+    </script>
+    <script src="{% static 'js/animal1.js' %}"></script>
+    <script>
+      eval(mod_pagespeed_PheztQ5KeU);
+    </script>
+    <script>
+      eval(mod_pagespeed_7JeVy$gaKh);
+    </script>
+    <script>
+      eval(mod_pagespeed_7eAOlpDE5G);
+    </script>
+    <script>
+      eval(mod_pagespeed_wYcbH3bMHt);
+    </script>
+    <script>
+      eval(mod_pagespeed_rlMM_XDUX_);
+    </script>
+    <script src="{% static 'js/animal2.js' %}"></script>
+    <script>
+      eval(mod_pagespeed_RRE27dWFEX);
+    </script>
+    <script>
+      eval(mod_pagespeed_w7M8yeq96M);
+    </script>
+    <script>
+      eval(mod_pagespeed_ZnvqZjnXfC);
+    </script>
+    <script>
+      eval(mod_pagespeed_5kC6qwcDZy);
+    </script>
+    <script>
+      eval(mod_pagespeed_dKq4O7yY2L);
+    </script>
+    <script src="{% static 'js/main2.js' %}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="{% static 'js/home.js' %}"></script>
+  </body>
+</form>
+</html> {% endblock content %}
