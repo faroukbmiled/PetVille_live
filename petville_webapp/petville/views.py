@@ -114,7 +114,7 @@ class UserListView(ListView):
     template_name = 'petville/users.html'
 
 
-
+@login_required
 def profile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
@@ -153,11 +153,11 @@ def location(self, request, *args, **kwargs):
     
 def user_info(request, username):
         if username:
-            user = get_object_or_404(User, username=username)
-            user_data = UpdateUserData(instance=user.userdata)
+            users = get_object_or_404(User, username=username)
+            user_data = UpdateUserData(instance=users.userdata)
         else:
-            user = request.user
-        args = {'user': user, 'user_data': user_data}
+            users = request.user
+        args = {'users': users, 'user_data': user_data}
         return render(request, 'petville/userinfo.html', args)
     
 def homepage(request):

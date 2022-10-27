@@ -51,7 +51,7 @@
             {% if user.is_authenticated %} <li class="nav-item">
               <a href="{% url 'logout' %}?next={% url 'petville-home' %}" class="nav-link">Logout</a>
             </li>
-            <a href="profile/">
+            <a href="{% url 'petville-profile' %}">
               <img class="rounded-circle account-img nav-item0" src="{{ user.profile.avatar.url }} " style="cursor: pointer; left: 25%;"></img>
             </a> {% else %} <li class="nav-item">
               <a href="{% url 'login' %}" class="nav-link">Sign in</a>
@@ -77,7 +77,7 @@
               <span>Profiles <i class="ion-ios-arrow-forward"></i>
               </span>
             </p>
-            <h1 class="mb-0 bread">{{ user.username }}'s Profile</h1>
+            <h1 class="mb-0 bread">{{ users.username }}'s Profile</h1>
           </div>
         </div>
       </div>
@@ -88,12 +88,12 @@
           <div class="col-lg-4">
             <div class="card mb-4">
               <div class="card-body text-center">
-                <img src="{{ user.profile.avatar.url }}" alt="avatar"
+                <img src="{{ users.profile.avatar.url }}" alt="avatar"
                   class="rounded-circle img-fluid" style="width: 150px;">
-                <h4 class="my-3">{{ user.username }}</h4>
-                <p class="text-muted mb-1">{{ user.userdata.cost }} {{ user.userdata.per_what }}</p>
-                <p class="text-muted mb-1">From {{ user.userdata.state }}</p>
-                <p class="text-muted mb-1">{{ user.userdata.my_field }}</p>
+                <h4 class="my-3">{{ users.username }}</h4>
+                <p class="text-muted mb-1">{{ users.userdata.cost }} {{ users.userdata.per_what }}</p>
+                <p class="text-muted mb-1">From {{ users.userdata.state }}</p>
+                <p class="text-muted mb-1">{{ users.userdata.my_field }}</p>
                 <div class="d-flex justify-content-center mb-2">
                 </div>
               </div>
@@ -130,31 +130,31 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">Name: {{ user.first_name }} {{ user.last_name }}</p>
+                    <p class="text-muted mb-0"><strong>Name:</strong> {{ users.first_name }} {{ users.last_name }}</p>
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">Email: {{ user.email }}</p>
+                    <p class="text-muted mb-0"><strong>Email:</strong> {{ users.email }}</p>
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">Phone number: {{ user.userdata.phone_number }}</p>
+                    <p class="text-muted mb-0"><strong>Phone number:</strong> {{ users.userdata.phone_number }}</p>
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">Adress: {{ user.userdata.city }}</p>
+                    <p class="text-muted mb-0"><strong>Adress:</strong> {{ users.userdata.city }}</p>
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0">Info: {{ user.userdata.questions }}</p>
+                    <p class="text-muted mb-0"><strong>Info:</strong> {{ users.userdata.questions }}</p>
                   </div>
                 </div>    
               </div>
@@ -163,7 +163,7 @@
               <div class="col-md-6">
                 <div class="card mb-4 mb-md-0" style="width: 545px !important">
                   <div class="card-body">
-                    <p class="text-muted mb-0">Location:</p>
+                    <p class="text-muted mb-0"><strong>Location:</strong></p>
                     {{ user_data.cityuser }}
                     <div class="">  {{ user_data.location }}  </div>
                     </div>
