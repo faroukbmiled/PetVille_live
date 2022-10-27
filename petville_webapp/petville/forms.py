@@ -135,6 +135,9 @@ class UpdateUserData(forms.ModelForm):
     city = forms.CharField(max_length=100,
                                required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control'}))
+    cityuser = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'style': 'position: absolute;left: -999em;'}))
     location = PlainLocationField(attrs={'style': 'position: absolute;left: -999em;'}, based_fields=['city', 'state'],
                                   initial='36.80105674280464, 10.181972264198441')
     state = forms.ChoiceField(choices=blank_choice+GOVERNORATE_CHOICES, required=True, 
@@ -143,5 +146,5 @@ class UpdateUserData(forms.ModelForm):
     
     class Meta:
         model = UserData
-        fields = ['location', 'city', 'state']
+        fields = ['location', 'city', 'state', 'cityuser']
         

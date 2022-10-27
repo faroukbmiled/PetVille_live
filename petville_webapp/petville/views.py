@@ -154,9 +154,10 @@ def location(self, request, *args, **kwargs):
 def user_info(request, username):
         if username:
             user = get_object_or_404(User, username=username)
+            user_data = UpdateUserData(instance=user.userdata)
         else:
             user = request.user
-        args = {'user': user}
+        args = {'user': user, 'user_data': user_data}
         return render(request, 'petville/userinfo.html', args)
     
 def homepage(request):
