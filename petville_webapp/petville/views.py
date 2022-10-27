@@ -18,7 +18,7 @@ from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
 
-from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm, UpdateUserData
+from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm, UpdateUserData, ClassMap
 
 
 def home(request):
@@ -154,7 +154,7 @@ def location(self, request, *args, **kwargs):
 def user_info(request, username):
         if username:
             users = get_object_or_404(User, username=username)
-            user_data = UpdateUserData(instance=users.userdata)
+            user_data = ClassMap(instance=users.userdata)
         else:
             users = request.user
         args = {'users': users, 'user_data': user_data}
