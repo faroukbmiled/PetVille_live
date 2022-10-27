@@ -41,9 +41,12 @@
       flex: 1 1 auto;
       padding: 1.25rem;
   }
+  #imageupload {
+
+   }
       </style>
   </head>
-  <form method="POST"> {% csrf_token %}
+  <form method="post" enctype="multipart/form-data"> {% csrf_token %}
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
@@ -123,7 +126,7 @@
           <div class="col-lg-4">
             <div class="card mb-4">
               <div class="card-body text-center">
-                <img src="{{ user.profile.avatar.url }}" alt="avatar"
+                <img src="{{ user.profile.avatar.url }}" alt="avatar" 
                   class="rounded-circle img-fluid" style="width: 150px;">
                 <h4 class="my-3">{{ user.username }}</h4>
                 <p class="text-muted mb-1">{{ user.userdata.cost }} {{ user.userdata.per_what }}</p>
@@ -205,8 +208,9 @@
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="{{ user.profile.avatar.url }}" alt="avatar"
-                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <a class='btn' id='none'> <img src="{{ user.profile.avatar.url }}" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;"> </a>
+                    {{ profile_form.avatar }}
                   <p class="my-3">Username: {{ user_form.username }}</p>
                   <p class="text-muted mb-1">Rate: {{ user_data.cost }} </p>
                   <p class="text-muted mb-1">{{ user_data.per_what }} </p>
@@ -229,6 +233,7 @@
               </div>
               <button class='btn btn-primary' id='backbtn'> Back </button>
               <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="reset" class="btn btn-dark btn-lg">Reset</button>
             </div>
             <div class="col-lg-8">
               <div class="card mb-4 row rounded opacity-75" style='width: 545px !important;'>

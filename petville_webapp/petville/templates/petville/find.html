@@ -76,10 +76,10 @@
 				  <img class="img align-self-stretch" src= {{ user.profile.avatar.url }}></img>
 				</div>
 				<div class="text pt-3 px-3 pb-4 text-center">
-				  <h3>{{ user }}</h3>
-				  <span class="position mb-2">{{ user.userdata.state }}</span>
+				  <h3>{{ user.first_name }}</h3>
+				  <span class="position mb-2">{{ user.userdata.cost }} {{ user.userdata.per_what }}</span>
 				  <div class="faded">
-					<p>{{ user.userdata.phone_number }}</p>
+					<p> {{ user.userdata.state }} </p>
 					<ul class="ftco-social text-center">
 					  <li class="ftco-animate">
 						<a href="{% url 'profiles' user.username %}" class="d-flex align-items-center justify-content-center">

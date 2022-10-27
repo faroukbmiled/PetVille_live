@@ -13,5 +13,9 @@ $("#backbtn").click(function () {
     $('#slc1').fadeIn("slow");
 
 });
+$("#none").click(function(){
+    $("#imageupload").click(); 
+    return false;
+});
 },);
  

@@ -136,14 +136,14 @@
 					  <span class="fa fa-quote-left"></span>
 					</div>
 					<div class="text">
-					  <p class="mb-4">{{user.profile.bio}}</p>
 					  <div class="d-flex align-items-center">
 						<div class="user-img" style="background-image:url({{user.profile.avatar.url}})"></div>
 						<div class="pl-3">
-						  <a style='display: display: block;' href="{% url 'profiles' user.username %}"><p class="name atageffect">{{user}}</p></a>
+						  <a style='display: display: block;' href="{% url 'profiles' user.username %}"><p class="name atageffect">{{user.first_name}}</p></a>
 						  <span class="position">{{user.userdata.my_field}}</span>
 						</div>
 					  </div>
+            <span class="position">{{user.userdata.questions}}</span>
 					</div>
 				  </div>
 				</div>
