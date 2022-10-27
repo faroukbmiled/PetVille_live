@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/static/admin/js/vendor/jquery/jquery.js"></script>
     <link rel="stylesheet" href="{% static '/css/animal.css' %}" />
+    <style>
+      .row{
+        position: relative;
+        right: -31px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+      </style>
   </head>
   <body class="userinfo">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -20,10 +33,10 @@
           <span class="fa fa-bars"></span> Menu </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a href="/" class="nav-link">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a href="/find" class="nav-link">Find a pet sitter</a>
             </li> 
             <li class="nav-item">
