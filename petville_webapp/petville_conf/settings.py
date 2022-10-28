@@ -30,7 +30,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["54.82.98.129", "127.0.0.1", "www.ryuk.tech", "http://ryuk.tech", "petville.ryuk.tech"]
+ALLOWED_HOSTS = ["54.82.98.129", "127.0.0.1", "www.ryuk.tech", "ryuk.tech", "petville.ryuk.tech"]
 
 
 # Application definition
