@@ -90,32 +90,8 @@ class Admin(commands.Cog):
         await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
     @app_commands.command(description='list users')
-    async def users(self, interaction: Interaction) -> None:
-        """info about users"""
-        api = self.api_users
-        status = requests.get(api, headers=self.headers)
-        
-        if status.status_code != 200:
-            
-            embed = discord.Embed(color=0xFF0000)
-            embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
-            embed.set_thumbnail(url=self.thumb)
-            embed.set_image(url=self.errorgif)
-            view = ui.View()
-            view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
-            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
-
-        elif len(get(api).json()) == 0:
-            embed = discord.Embed(color=0xFFA500)
-            embed.add_field(name=f"**Server Status** [{status.status_code}]:",value="**Your Database is empty!**", inline=False)
-            embed.set_image(url=self.itsfinegif)
-            view = ui.View()
-            embed.set_thumbnail(url=self.logoMsize)
-            view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
-            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
-            
-    @app_commands.command(description='list users')
-    async def users(self, interaction: Interaction) -> None:
+    @app_commands.describe(token="Your token")
+    async def users(self, interaction: Interaction, token: str) -> None:
         """info about users"""
         api = self.api_users
         status = requests.get(api, headers=self.headers)
@@ -140,8 +116,10 @@ class Admin(commands.Cog):
             await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
             
         else:
+            headers = {'Authorization': []}
+            headers['Authorization'] = token
             empty = ['\---------------']
-            jsonify = requests.get(api, headers=self.headers).json()
+            jsonify = requests.get(api, headers=headers).json()
             if status:
                 for i in jsonify:
                     empty.append(f'{i["username"]}')
@@ -150,6 +128,46 @@ class Admin(commands.Cog):
 
             embed = discord.Embed(color=0x7ac3e6)
             embed.add_field(name=f"**Users:** [{length}]",value=formated, inline=False)
+            view = ui.View()
+            embed.set_thumbnail(url=self.logoSsize)
+            view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
+            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
+            
+    @app_commands.command(description='get your token')
+    @app_commands.describe(username="Your username")
+    @app_commands.describe(password="Your password")
+    async def gettoken(self, interaction: Interaction, username: str, password: str) -> None:
+        """get ur gettoken"""
+        api = self.api_users
+        status = requests.get(api, headers=self.headers)
+        
+        if status.status_code != 200:
+            
+            embed = discord.Embed(color=0xFF0000)
+            embed.add_field(name=f"**Server Status:** [{status.status_code}]",value="**Oh no! Server is not responding!**", inline=False)
+            embed.set_thumbnail(url=self.thumb)
+            embed.set_image(url=self.errorgif)
+            view = ui.View()
+            view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
+            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view) 
+
+        elif len(get(api).json()) == 0:
+            embed = discord.Embed(color=0xFFA500)
+            embed.add_field(name=f"**Server Status** [{status.status_code}]:",value="**Your Database is empty!**", inline=False)
+            embed.set_image(url=self.itsfinegif)
+            view = ui.View()
+            embed.set_thumbnail(url=self.logoMsize)
+            view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
+            await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
+            
+        else:
+            params = {'username': [], 'password': []}
+            params['username'] = username
+            params['password'] = password
+            response = requests.post(self.api_token, json=params)
+            data = response.json()
+            embed = discord.Embed(color=0x7ac3e6)
+            embed.add_field(name=f"**Your token:**",value=data, inline=False)
             view = ui.View()
             embed.set_thumbnail(url=self.logoSsize)
             view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
