@@ -167,8 +167,9 @@ class Admin(commands.Cog):
             empty = ['\---------------']
             jsonify = requests.get(link, headers=headers).json()
             usr = jsonify["userdata"]
+            urnm = jsonify["username"]
             embed = discord.Embed(color=0x7ac3e6)
-            embed.add_field(name=f"**Users:**",value=usr, inline=False)
+            embed.add_field(name=f"**{urnm}'s userdata:**",value=usr, inline=False)
             view = ui.View()
             embed.set_thumbnail(url=self.logoSsize)
             view.add_item(ui.Button(label='API Link', url=self.api_users, row=0))
