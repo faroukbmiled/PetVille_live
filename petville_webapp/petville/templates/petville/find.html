@@ -70,7 +70,7 @@
     <section class="ftco-section bg-light">
 		<div class="container">
 		  <div class="row">
-			{% for user in object_list %}
+			{% for user in users %}
 			<div class="col-md-6 col-lg-3 ftco-animate">
 			  <div class="staff">
 				<div class="img-wrap d-flex align-items-stretch">
@@ -81,6 +81,7 @@
 				  <span class="position mb-2">{{ user.userdata.cost }} {{ user.userdata.per_what }}</span>
 				  <div class="faded">
 					<p> {{ user.userdata.state }} </p>
+          <p> {{ user.userdata.my_field }} </p>
 					<ul class="ftco-social text-center">
 					  <li class="ftco-animate">
 						<a href="{% url 'profiles' user.username %}" class="d-flex align-items-center justify-content-center">
@@ -155,10 +156,6 @@
                 </li>
                 <li>
                   <a href="/">
-                    <span class="icon fa fa-paper-plane"></span>
-                    <span class="text">
-                      <span class="__cf_email__" data-cfemail="2841464e476851475d5a4c4745494146064b4745">[email&#160;protected]</span>
-                    </span>
                   </a>
                 </li>
               </ul>

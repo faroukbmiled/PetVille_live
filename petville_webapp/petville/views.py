@@ -105,10 +105,11 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_url = reverse_lazy('petville-home')
     
     
-class UserListView(ListView):
-
-    model = User
-    template_name = 'petville/users.html'
+def findpetsiter(request):
+    context = {
+    "users": User.objects.all().exclude(is_superuser=True),
+    }
+    return render(request=request, template_name='petville/find.html', context=context)
 
 
 @login_required
@@ -151,7 +152,7 @@ def location(self, request, *args, **kwargs):
     
 def user_info(request, username):
         if username:
-            users = get_object_or_404(User, username=username)
+            users = get_object_or_404(User.objects.all().exclude(is_superuser=True), username=username)
             user_data = ClassMap(instance=users.userdata)
         else:
             users = request.user
@@ -160,6 +161,6 @@ def user_info(request, username):
     
 def homepage(request):
     context = {
-    "users": User.objects.all(),
+    "users": User.objects.all().exclude(is_superuser=True),
     }
     return render(request=request, template_name='petville/home.html', context=context)
