@@ -89,9 +89,9 @@ class Admin(commands.Cog):
 
         await interaction.response.send_message(f"<@{interaction.user.id}> Here:", embed=embed, view=view)
 
-    @app_commands.command(description='list states')
-    async def states(self, interaction: Interaction) -> None:
-        """info about states"""
+    @app_commands.command(description='list users')
+    async def users(self, interaction: Interaction) -> None:
+        """info about users"""
         api = self.api_states
         status = requests.get(api, headers=self.headers)
         
