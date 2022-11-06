@@ -24,10 +24,12 @@ import requests
 
 class CurrentUserViewSet(viewsets.ModelViewSet):
     search_fields = ['username', 'id']
+    lookup_field = "username"
     filter_backends = (filters.SearchFilter,)
     permission_classes = [IsAdminUser]
     queryset = User.objects.all()
     serializer_class = CurrentUserSerializer
+    
 
 class LastLoginSerializer(viewsets.ModelViewSet):
     permission_classes = [IsAdminUser]
@@ -49,6 +51,4 @@ class ServerStatus(viewsets.ViewSet):
         else:
             content_ok = {"status": "OK", "code": f"{r.status_code}"}
             return Response(content_ok, status=status.HTTP_200_OK)
-
-
 

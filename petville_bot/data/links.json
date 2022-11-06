@@ -4,10 +4,10 @@
     "logoMsize": "https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png",
     "errorgif": "https://cdn.discordapp.com/attachments/869978103471046708/1029004680212254841/8NxwEwX.gif",
     "thumb": "https://cdn.discordapp.com/attachments/869978103471046708/1029061537790443632/notext_1_2_1_1_3.png",
-    "api_status": "http://54.82.98.129/api/v1/status/?format=json",
-    "web_link": "http://54.82.98.129",
+    "api_status": "http://127.0.0.1:8000/api/v1/status/?format=json",
+    "web_link": "http://127.0.0.1:8000",
     "port_link": "https://github.com/faroukbmiled/PetVille_live",
     "itsfinegif": "https://cdn.discordapp.com/attachments/869978103471046708/1029141337867567214/giphy.gif",
-    "api_users": "http://54.82.98.129/api/v1/users/?format=json",
-    "api_token": "http://54.82.98.129/api/v1/token_auth/"
+    "api_users": "http://127.0.0.1:8000/api/v1/users/?format=json",
+    "api_token": "http://127.0.0.1:8000/api/v1/token_auth/"
  }
